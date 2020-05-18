@@ -1,0 +1,1299 @@
+"lenovo thinkcentre m82",1
+"hp elitedesk 800 g1 intel",1
+"fujitsu lifebook s761 13 3 i5 25",1
+"dell latitude e7250 i7 5300u 12",1
+"apple macbook air i5 11 6",1
+"hp compaq la 2205wg",1
+"dell latitude e5440 i5 4300u 14",1
+"apple macbook pro early 2013 i5",1
+"huawei mate 20 x 5g",1
+"fujifilm x t10",1
+"apple watch series 3",1
+"ipad pro 12 9 2017",1
+"dell precision m6800 i7 4810mq 1",1
+"nokia 7 1",1
+"fujitsu lifebook e736 i5 6300u 1",1
+"lenovo thinkpad l450 i5 5200u 14",1
+"lenovo thinkpad s540 i5 15 6",1
+"dell latitude e5440 i5 4200u 14",1
+"hp elitebook folio 1040 g3 i7 65",1
+"htc u play",1
+"hp probook 6470b i3 14",1
+"hp elitebook 8470p i5 3210m 14",1
+"dell precision t5810 workstation",1
+"apple macbook air 2018 i5 13 3",1
+"hp elitebook 8770w i7 3740qm 17",1
+"samsung galaxy a3 a310f",1
+"dell latitude e7240 i5 14",1
+"oppo reno",1
+"razer blackwidow x chroma gaming",1
+"apple imac 5k 2015 27",1
+"fujitsu scenicview a22w 3a 22",1
+"beats tour",1
+"samsung galaxy watch r810 42mm",1
+"iphone 7",1
+"htc desire 610",1
+"corratec e power x vert 29er per",1
+"aeg km4620 ultramix",1
+"samsung galaxy s5 neo",1
+"apple airpods 1 gen",1
+"severin sm 3746 standmixer smoot",1
+"samsung galaxy watch r800 46mm",1
+"nokia 1",1
+"leica m p typ 240",1
+"dell latitude e7470 i7 6600u 14",1
+"dell latitude e7270 i7 6600u 12",1
+"lenovo smart tab p10",1
+"fujitsu lb e744 i74712mq 14",1
+"tratr1",1
+"fujitsu celsius m720 e5 1620",1
+"lenovo thinkpad x270 i5 6300u 12",1
+"samsung galaxy note 3",1
+"motorola moto g7 power",1
+"lenovo thinkstation s20 xeon w",1
+"dell latitude e6540 i7 4810mq 15",1
+"htc one m9 plus",1
+"dell precision 7710 i7 6820hq 17",1
+"apple watch sport 38mm 1st gen",1
+"bergamont e ville deore 2018 e c",1
+"dell latitude d630 14 1",1
+"hp dc 7900 cmt",1
+"fujitsu lifebook s935 i5 5300u 1",1
+"lenovo thinkpad t460s intel core",1
+"sony dk52 dockingstation",1
+"iphone 5",1
+"lenovo thinkpad yoga 460 6300u",1
+"dell p2414hb",1
+"huawei mate 20 pro",1
+"huawei p10 lite",1
+"nokia lumia 635",1
+"hp elitedesk 800 g3 dm intel 6th",1
+"apple imac 2013 i5 21 5",1
+"razer naga hex v2 ergonomic moba",1
+"jbl pulse 3",1
+"lenovo thinkpad t440s i5 4300 14",1
+"cat s61",1
+"canon eos 5ds r",1
+"trekstor primebook c13 lte volks",1
+"lenovo dockingstation thinkpad o",1
+"sony xperia xa1",1
+"samsung galaxy a9 2018",1
+"oppo rx17 neo",1
+"blackberry leap",1
+"iphone xr",1
+"xiaomi mi max 3",1
+"eizo flexscan ev2336w 23",1
+"samsung galaxy s4 active i9295",1
+"lenovo thinkstation p700",1
+"lenovo thinkpad t570 i7 6600u 15",1
+"dell latitude e7250 touch i5 530",1
+"samsung syncmaster 940t 19",1
+"dell xps 15 9550 i7 6700hq 15 6",1
+"aoc 2436pwa",1
+"lenovo thinkpad w540",1
+"samsung galaxy s4 i9505",1
+"beats solo hd",1
+"samsung gear s3 frontier",1
+"hp z440 workstation e5 1650 v3 n",1
+"fujitsu celsius w530",1
+"dell optiplex 7010dt i5",1
+"apple macbook air 2011 i5 2557m",1
+"aeg cx7 1 30eb ergorapido classi",1
+"lenovo tc m900 sff intel6000",1
+"macbook pro 2019 133 tb",1
+"hp prodesk 600 g1 dm i3",1
+"fujitsu lifebook s751 14 i5 2520",1
+"dell latitude e6440 i5 14",1
+"blackberry keyone",1
+"dell xps 13 9360 i5 8250u 13 3",1
+"lenovo thinkpad x250 i5 4300m 12",1
+"nikon d850",1
+"hp elitedesk 800 g1 usdt",1
+"fujitsu lifebook a555 i3 15 6",1
+"nokia 5 1 plus",1
+"google pixel 3 xl",1
+"gopro hero 3 plus",1
+"sony alpha 7",1
+"iphone 11 pro max",1
+"ipad mini 3",1
+"microsoft lumia 650",1
+"dell latitude e5420 i5 14",1
+"cat s60",1
+"hp elite 8300 i5",1
+"fujitsu display b24 8 te pro 23",1
+"xiaomi mi 8 lite",1
+"hp elitebook 8570w i7 15 6",1
+"lg k4",1
+"fujifilm x t20",1
+"lg g flex 2",1
+"iphone se",1
+"iphone 5c",1
+"hp prodesk 600 g4 dm intel 8th g",1
+"lenovo thinkpad w540 i7 4700mq 1",1
+"roborock s6 staubsaugerrowifu",1
+"samsung galaxy tab a t585",1
+"hp elitebook 8470p i5 3360m 14",1
+"fujifilm x h1",1
+"cat b35",1
+"htc 10",1
+"apple watch series 1",1
+"dell latitude e7250 i5 5200u 12",1
+"samsung galaxy s10 lite",1
+"fujitsu lifebook e756 15 6 i5 63",1
+"fujifilm x pro2",1
+"fujitsu celsius h730 i7 6820hq",1
+"fujitsu esprimo p700 mt intel 2n",1
+"dell latitude 12 rugged extreme",1
+"severin ka 4489 kaffeeautomat",1
+"apple mac mini late 2012 i7 3720",1
+"hp probook 6560b",1
+"aeg vx4 1",1
+"fujitsu lifebook e554 15 6 i5 42",1
+"ipad air 1",1
+"rowenta master precision 360deg",1
+"dell latitude e6540 i7 4610m 15",1
+"beatsx",1
+"rowenta so5115 f0 heizlufter",1
+"fujitsu celsius h730 i5 4300m",1
+"lenovo thinkpad x220 i5 2450m",1
+"huawei mediapad m5 10 pro",1
+"fujitsu display b19 6 led 19",1
+"samsung galaxy s10e",1
+"samsung galaxy a3 2017 a320f",1
+"hp z420 workstation xeon e5",1
+"ipad 7 10 2",1
+"lenovo thinkpad t450s i5 14",1
+"dell ultrasharp u3014t 30",1
+"hp elitebook 820 g1 i5 4310u 12",1
+"huawei p9 plus",1
+"samsung i9301i galaxy s3 neo",1
+"dell professional p2213t",1
+"fujitsu lifebook e546 i5 6200u 1",1
+"dell precision m6800 i7 17",1
+"fujitsu lifebook e754 15 6 i5 43",1
+"hp z230 mt workstation i7 4790 n",1
+"razer abyssus gaming mouse inkl",1
+"hp elitebook 2170p i5 11 6",1
+"sony xperia x",1
+"hp probook 650 g1 i5 4310m 15 6",1
+"fujifilm x t1",1
+"razer mamba chroma tournament ed",1
+"htc u ultra",1
+"huawei mate 20 lite",1
+"dell latitude 14 rggd5414",1
+"esprimo p720 e90",1
+"aeg acc5120 cyclon clean beutell",1
+"playstation 4 dualshock wireless",1
+"dell latitude e6320 i5 13 3",1
+"blackberry z10",1
+"lenovo thinkpad w541 i7 4810mq 1",1
+"huawei ascend p7",1
+"fujitsu fujitsu celsius m740 wor",1
+"sony xperia 10a",1
+"lenovo mini dock series 3",1
+"leica m typ 262",1
+"hp 17 by0228ng n4000 17 3",1
+"dell latitude e6540 i5 4200m 15",1
+"lg k8 2017",1
+"microsoft surface pro 2017 i5 73",1
+"dell latitude e6540 i7 4310m 15",1
+"iphone 6s",1
+"rowenta smart force extreme rr71",1
+"samsung galaxy note edge 2014 n9",1
+"playstation 3 dualshock wireless",1
+"rowenta dg 8962 dampfbugelstatio",1
+"dell latitude e6330 i5 3340 13 3",1
+"lenovo thinkpad l560 i7 15 6",1
+"fujitsu celsius m720 e5",1
+"fujitsu lifebook e746 14 i5 6300",1
+"nokia 6 1",1
+"apple keyboard mb110d a",1
+"microsoft surface pro 4 m3 6y30",1
+"fujitsu celsius mobile h760 15 6",1
+"severin to 2034 mini backofen",1
+"google pixel 3a",1
+"oneplus 3",1
+"iphone 4",1
+"dell p2214hb monitor",1
+"huawei ascend g7",1
+"nokia 6 1 plus",1
+"hp prodesk 600 g1 twr g3220",1
+"dell latitude 7390 i5 7300u 13 3",1
+"lenovo gaming pc pro m92p sff i5",1
+"sony alpha 9",1
+"motorola moto g6 play",1
+"huawei mediapad t3 10 0",1
+"samsung galaxy tab a 10 1 t580 1",1
+"apple watch edition series 2 38m",1
+"leica q typ 116",1
+"fujitsu esprimo p5731",1
+"dell optiplex 9020 usff intel co",1
+"traxl1",1
+"panasonic lumix dmc gh4",1
+"apple macbook 2015 intel core m",1
+"sony xperia 5",1
+"dell p2417hc monitor",1
+"dell precision m4700 i7 3740qm 1",1
+"dell latitude 7280 i7 7600u 12 5",1
+"raleigh kingston 2018 e citybik",1
+"severin km 3888 kuchenmaschine",1
+"ipad pro 12 9 2018",1
+"honor 5x",1
+"corratec e power x vert 29er tra",1
+"razer kraken pro 2015 analog ste",1
+"huawei p9",1
+"krups kp 1000 nescafe dolce gust",1
+"samsung galaxy a5 a500f 2014",1
+"hp z24i",1
+"apple mac pro 2013 xeon e5 2x am",1
+"lenovo thinkcentre e73 twr i7",1
+"eizo flexscan ev2750 27",1
+"dell latitude 13 3 8350u",1
+"hp elitebook 8440p i5 520m 14",1
+"doro 8040",1
+"huawei mate 10 pro",1
+"xiaomi redmi 6",1
+"hp elitebook 8460p i5 14",1
+"apple macbook pro 2017 13 3 touc",1
+"hp compaq elite 8000 ultra slim",1
+"sony cyber shot dsc hx400v",1
+"razer kraken usb essential gamin",1
+"apple macbook pro 2018 15 4 touc",1
+"lenovo thinkpad t570 i5 6300u 15",1
+"samsung galaxy j5 2016",1
+"trekstor surftab breeze 9 6 quad",1
+"hp zbook 15 g2 i7 4810mq 15 6",1
+"jbl pulse",1
+"rowenta ep9300 aquaperfect",1
+"fujitsu scenicview b22w 5 22",1
+"lenovo ideapad 710s 13isk i7 656",1
+"severin sm 3737 standmixer smoot",1
+"samsung galaxy tab active2 8",1
+"lenovo thinkcentre m800 intel co",1
+"hp elitebook 820 g1 i7 4600u 12",1
+"lenovo smart tab m10",1
+"fujifilm x t2",1
+"motorola moto g3",1
+"leica m10 typ 3656",1
+"oppo reno z",1
+"dell latitude e7440 i7 14",1
+"dell precision 7510 i7 6820hq 15",1
+"moulinex ju2000",1
+"apple imac 2015 21 5",1
+"google pixel 2",1
+"apple homepod",1
+"lenovo tp x260 6300u 125",1
+"iphone 6 plus",1
+"hp elitedesk 800 g1 i5 4670s",1
+"lg g5 h850",1
+"lenovo ideapad c340 14api ryz32u",1
+"microsoft surface pro 2017 m3 7y",1
+"lenovo thinkcentre m93p sff i5",1
+"apple macbook air 2015 11 6",1
+"avm fritz box 7330",1
+"dell precision m6600 i7 17",1
+"lenovo thinkstation s30 xeon e5",1
+"sonos play 3",1
+"apple thunderbolt display 27",1
+"nokia 7 plus",1
+"hp elitebook 840 g4 i5 8350u",1
+"dell precision t7600 workstation",1
+"lenovo thinkpad t440s i7 4600u 1",1
+"dell latitude e6430 i7 3540m 14",1
+"lenovo thinkpad t440p i7 4710mq",1
+"fujitsu celsius r930 workstation",1
+"jbl synchros e30",1
+"lg g4",1
+"microsoft surface pro 4 i7 12 3",1
+"dell latitude e5570 i5 6300u 15",1
+"ghost teru gs 2018 e hardtail",1
+"xiaomi mi 6",1
+"lenovo tc m900z aio 23",1
+"huawei mediapad t1 7 0 tablet pc",1
+"huawei gx8",1
+"sony alpha 7s ii",1
+"samsung galaxy xcover 550",1
+"fujitsu esprimo p900 mt i5",1
+"honor view 10",1
+"lenovo thinkpad x201 i5 12",1
+"dell latitude 15 3580 i5 7200u 1",1
+"apple macbook air 2012 i5 3317u",1
+"hp probook 6460b i3 14",1
+"hp elitebook 850 g1 i5 4200u 15",1
+"asus rog phone zs600kl",1
+"samsung galaxy note 10",1
+"garmin vivosmart hr fitness trac",1
+"xiaomi redmi note 7",1
+"beats powerbeats 3 wireless",1
+"severin my 7101",1
+"nokia 9 pureview",1
+"lenovo thinkvision lt2252p 22",1
+"iphone 5s",1
+"fujitsu lb e744 i74702mq 14",1
+"dell latitude e7440",1
+"google pixel 4",1
+"google pixel",1
+"fujitsu display b24w 6 24",1
+"fujitsu celsius m730 workstation",1
+"lenovo thinkpad w530 i5 3320m 15",1
+"dell optipley 7040 micro usff",1
+"dell optiplex 9020 mt intel core",1
+"apple macbook pro 2013 i5 13 3",1
+"dell latitude e7450 i7 5600u 14",1
+"sony xperia xz2",1
+"sony xperia e3 d2203",1
+"huawei gr3",1
+"apple macbook pro 2010 15 4",1
+"xiaomi redmi note 5a",1
+"canon eos 760d",1
+"samsung gear iconx sm r150",1
+"razer seiren usb digital microph",1
+"razer raiju gaming controller fo",1
+"lenovo ideapad 320 15ikb i5 7200",1
+"lenovo thinkpad 510 i5 520m",1
+"hp elitedesk 800 g1 twr i5 4670",1
+"lenovo thinkcentre m81 pnetium g",1
+"oneplus 7t pro",1
+"apple macbook pro i7 15 4",1
+"fujitsu esprimo p520 e85 i5 4460",1
+"samsung galaxy s9 plus duos",1
+"microsoft surface go 10",1
+"apple imac 5k 2014 27",1
+"fujitsu lifebook s762 13 3 i5 33",1
+"apple watch series 4",1
+"fujitsu lifebook a514 i3 15 6",1
+"lg g6 h879",1
+"jbl charge 2",1
+"samsung galaxy a40",1
+"hp probook 6475b amd a6 2 7 ghz",1
+"lg google nexus 5x",1
+"fujitsu celsius m730",1
+"canon eos 7d mark ii",1
+"ipad mini 4",1
+"oneplus 6t",1
+"microsoft lumia 950",1
+"fujitsu esprimo p700",1
+"moulinex maxichef multicooker",1
+"hp probook 650 g1 i7 4610m 15 6",1
+"huawei p30 lite new ed",1
+"xiaomi mi 9t",1
+"dell latitude e6530 i5 3230m 15",1
+"sony xperia z2 sgp521",1
+"xiaomi redmi 5",1
+"hp elitebook 840 g3 14 i5 6300u",1
+"nokia 8 sirocco",1
+"dell latitude 7285 2 in 1 i5 7y5",1
+"teufel boomster xl",1
+"huawei mediapad t3 8 0",1
+"apple macbook pro late 2013 15 4",1
+"xiaomi mi a2",1
+"panasonic lumix dc g9",1
+"apple watch series 2 38mm",1
+"lenovo thinkstation p500 worksta",1
+"apple watch series 5 nike",1
+"samsung galaxy s3",1
+"apple macbook pro 2017 i5 13",1
+"htc one m8s",1
+"razer deathadder chroma ergonomi",1
+"dell precision m4800 i7 4810mq 1",1
+"dell optiplex 7440 aio pc i5 650",1
+"apple macbook pro 2012 retina 15",1
+"sony alpha 7r gehause",1
+"philips shb5500",1
+"hp probook 640 g2 i5 6300u 14",1
+"dell g2410 24",1
+"rowenta silent force compact ro",1
+"fujitsu fujitsu esprimo e900 e90",1
+"xiaomi redmi note 4",1
+"sony xperia z5 compact",1
+"motorola moto e5 play",1
+"aeg dampfbugelstation quickstea2",1
+"lenovo thinkpad t470 i5 6300u 14",1
+"fujitsu celsius w410 workstation",1
+"aeg cx7 21eb eco ergorapido 2 in",1
+"beats powerbeats",1
+"dell latitude e4310 i5 13 3",1
+"dell latitude e6430 i5 14 1",1
+"apple airpods 2 gen",1
+"nec multisync ea275wmi 27",1
+"samsung gear s3 classic",1
+"dell xps 15 9550 i5 6300hq 15 6",1
+"apple ipad 2017",1
+"fujitsu celsius m730 e5",1
+"lenovo thinkpad t520 i5 2410m 15",1
+"hp elite 8000 cmt",1
+"samsung galaxy xcover 3",1
+"samsung galaxy tab a 10 5",1
+"htc desire 12",1
+"lenovo yoga 720 13ikb i7 7500u 1",1
+"apple macbook retina 2015 12",1
+"razer tiamat 2 2 v2 analog gamin",1
+"samsung galaxy s9 plus",1
+"fujitsu celsius h720 15 6 i7 372",1
+"samsung galaxy s9",1
+"samsung galaxy xcover 4",1
+"samsung galaxy s9 duos",1
+"lenovo thinkstation p900",1
+"aeg ergorapido ag 935",1
+"xiaomi redmi note 5",1
+"dell latitude e7450 touch i7 560",1
+"dell latitude e5440 i5 4600u",1
+"fujitsu lifebook e734 i5 4300m 1",1
+"dell latitude e6520 i7 15 6",1
+"d link mydlink wireless n sicher",1
+"hp elitebook 850 g1 i5 4300u 15",1
+"lenovo thinkpad t460 i5 6300u 14",1
+"canon powershot g5 x",1
+"hp elitebook 840 g1 14 i5 4300u",1
+"xiaomi mi laser projektor",1
+"cat s41",1
+"jbl charge 2plus",1
+"fujitsu b line b20t 7 19 5",1
+"fujitsu lifebook p771 i7 12 1",1
+"fujitsu esprimo e520 sff",1
+"samsung s23c650d",1
+"panasonic fz x1 toughpad",1
+"lenovo thinkpad t430 i5 3210m 14",1
+"hp elitebook 820 g2 i5 5200u 12",1
+"fujitsu celsius mobile h730 15 6",1
+"beats pill",1
+"severin spiral und gemuseschneid",1
+"ipad air 3",1
+"hp probook 645 g1 amd a6 2 7 ghz",1
+"lenovo thinkpad t450 i5 5200u 14",1
+"apple macbook pro early 2011 i7",1
+"hp zbook 15 g2 i7 4800mq 15 6",1
+"huawei mate 10 lite",1
+"sonos play 1",1
+"hp elitebook folio 9470m i5 3427",1
+"huawei mediapad t1 10 0 lte",1
+"rowenta vu5640 turbosilence extr",1
+"dell precision t3600 workstation",1
+"rowenta vu2630 turbosilence ex t",1
+"htc u11",1
+"hp elitebook 2560p i5 2410m 12 5",1
+"wiko lenny 4",1
+"hp elitebook 8570p i5 15 6",1
+"samsung galaxy s20 ultra",1
+"sony xperia xz1",1
+"wiko lenny 2",1
+"lg v30",1
+"samsung galaxy trend lite",1
+"lenovo thinkstation p310 sff",1
+"apple iphone 8 plus",1
+"huawei y7 2019",1
+"xiaomi redmi 5a",1
+"hp zbk 15g4 7820hq",1
+"hp elitebook 8570w i7 3720qm 15",1
+"huawei mediapad m3 lite 10 10",1
+"microsoft surface pro 4 i5 6300u",1
+"nokia 6",1
+"hp elitebook 8470p i7 3520m 14",1
+"huawei watch 2",1
+"fujitsu lifebook e752 i3 3110m 1",1
+"bergamont e contrail 6 0 2018 e",1
+"telestar td 1010 s",1
+"acer iconia b1 711",1
+"sony xperia m5",1
+"xiaomi redmi s2",1
+"lenovo thinkpad p50 i7 6820hq 15",1
+"nokia lumia 620",1
+"samsung galaxy s6 edge plus",1
+"htc u12",1
+"apple magic trackpad 2",1
+"playstation 4 slim",1
+"hp elitebook 840 g2 i5 14",1
+"huawei matebook 13 i7 8565u 13",1
+"dell precision m6700",1
+"hp compaq 8100 elite cmt intel 1",1
+"dell latitude e6220 i5 12 5",1
+"hp elitedisplay e231",1
+"samsung galaxy s5",1
+"hp z240 sff 6000er",1
+"apple macbook air 2012 i5 3427u",1
+"iphone x",1
+"lenovo thinkcentre m72e twr inte",1
+"hp elitebook folio 9480m i5 4310",1
+"rowenta vu2110 tischventilator",1
+"alcatel fire e",1
+"beats urbeats",1
+"dell xps l322x i5 3770u 13 3",1
+"samsung galaxy view 18 4",1
+"xiaomi redmi 7",1
+"samsung galaxy a3 2014 a300f",1
+"iphone 4s",1
+"lenovo thinkpad t430 i5 3320m 14",1
+"dell latitude 15 e5550 i7 5600u",1
+"hp dc 5800 micro",1
+"apple watch edition series 2 42m",1
+"huawei mate rs porsche design",1
+"samsung s24e450",1
+"dell latitude e7470 touch i5 630",1
+"hp elitebook 820 g1 i5 4300u 12",1
+"dell thunderbolt dock tb16",1
+"samsung galaxy s8 plus",1
+"hp z820 workstation xeon e5",1
+"dell latitude e5270 i5 6300u 12",1
+"apple watch series 2 aluminium 3",1
+"severin 47759",1
+"hp elitebook 8460p i7 2620m 14",1
+"apple macbook 2017 intel core 12",1
+"honor 7",1
+"sony xperia xa2",1
+"akg y50",1
+"lenovo thinkpad 510 i5 540m",1
+"huawei p10",1
+"hp elitebook 2530p 4 gb 160 hdd",1
+"samsung galaxy s10 5g",1
+"dell latitude e7450 ultrabook i5",1
+"htc u11 life",1
+"hp elitebook 820 g1 i5 4200u 12",1
+"microsoft surface pro 4 type cov",1
+"hp compaq 6000 pro mt intel dual",1
+"beats studio 2 0",1
+"hp compaq pro 6300 sff i5",1
+"huawei p20 lite",1
+"dell optiplex 7010 sff i5",1
+"samsung galaxy s4 mini i9195",1
+"dell p2213 22",1
+"hp probook 6470b i5 14",1
+"lg v50 thinq 5g",1
+"hp hstnn i11x",1
+"huawei mediapad t3 7 0",1
+"razer blackwidow ultimate 2016 g",1
+"apple magic trackpad",1
+"xiaomi black shark",1
+"mad catz m m o 7 gaming mouse",1
+"samsung galaxy j7 pro",1
+"nikon d750",1
+"apple imac 4k 2017 21 5",1
+"lenovo thinkcentre m900 tiny bus",1
+"dell optiplex 960 mt dualcore",1
+"elitedesk 800 g1 usdt i5 4590s",1
+"fujitsu lifebook t901 i5 13 3",1
+"samsung galaxy a70",1
+"hp compaq elite 8300 sff",1
+"sony cyber shot dsc rx10 iii",1
+"apple watch series 2 42mm",1
+"huawei p40",1
+"hp elitedesk 800 g2 sff i7",1
+"hp z620 workstation xeon e5",1
+"apple macbook pro 2014 15 4",1
+"sonos play 5",1
+"trekstor surftab duo w1",1
+"fujitsu esprimo e920 e90 sff int",1
+"hp laserjet m3027 mfp multifunkt",1
+"lenovo ideapad s130 14igm n5000",1
+"samsung gear sport r600",1
+"fujitsu fujitsu lifebook e754 15",1
+"samsung b2710",1
+"olympus om d e m1 mark ii",1
+"lenovo thinkpad w520 i7 2640m 15",1
+"razer kraken pro v2 stereo gamin",1
+"samsung galaxy a8 2018",1
+"apple macbook air 2014 i5 13 4gb",1
+"dell latitude e7270 i5 6300u 12",1
+"hp elitebook 840 g2 i5 5300u 14",1
+"nokia 3",1
+"aeg lx4 1 eb beutelloser bodenst",1
+"hp spectre pro x360 g2",1
+"dell precision m4600 i7 2860qm 1",1
+"dell precision m4800 i5 4310m 15",1
+"lenovo thinkpad t440s i5 4300u 1",1
+"acer aspire 3 a4 9120e 14",1
+"fujitsu fujitsu esprimo e420 e85",1
+"fujitsu celsius r920 xeon e5",1
+"lenovo thinkpad t420s i5 2520m 1",1
+"hp zbook 17 i5 17",1
+"apple macbook pro 2012 15 4",1
+"xiaomi mi 8",1
+"dell precision 7520 i7 6820hq 15",1
+"dell latitude e6230 i5 3320m 12",1
+"apple watch series 5",1
+"oppo rx17 pro",1
+"huawei p20",1
+"hp compaq 6000 pro mt intel core",1
+"lenovo thinkstation p510 worksta",1
+"xiaomi redmi 6a",1
+"samsung galaxy a51",1
+"sony alpha 7 iii gehause",1
+"konig fritteuse fry 2 b02200",1
+"lg hbs 900",1
+"hp elite x2 1012 g1 m7 6y75",1
+"dell latitude 14 rugged extreme",1
+"huawei y7 2018",1
+"motorola moto g7 plus",1
+"lenovo carbon x1",1
+"fujitsu display b22w 6 22",1
+"bowers and wilkins a5",1
+"fujitsu esprimo p710 i3 3220",1
+"hp elitebook 820 g3 i5 6200u 12",1
+"lenovo thinkvision t2454p 24",1
+"hp elitebook 8560p i7 2620m 15 6",1
+"lenovo thinkpad t460p i5 6440hq",1
+"huawei mediapad m5 8 4",1
+"eizo flexscan ev2416w 24",1
+"olympus om d e m5 mark ii",1
+"fujitsu lifebook s752 i3 3110m 1",1
+"razer kraken 7 1 v2 surround gam",1
+"samsung galaxy j3 2017",1
+"dell latitude e5470 i5 6300u 14",1
+"sony alpha 6300",1
+"apple macbook pro 2015 13 3",1
+"dell p2217hc monitor",1
+"huawei mate 20",1
+"fujitsu scenicview p19 1s",1
+"cubot r11",1
+"razer blackwidow ultimate stealt",1
+"lenovo port replicator usb 3 0 d",1
+"asus zenbook 14",1
+"hp elitebook 840 g3 i7 6600u 14",1
+"samsung glxy tab a 10 t510t515",1
+"hp zbook 15 i7 4600m 1536",1
+"huawei mate 8",1
+"hp z240 cmt workstation intel co",1
+"samsung galaxy s8",1
+"lenovo thinkpad t530 i7 3740qm 1",1
+"lenovo thinkpad t440 i5 4300u 14",1
+"xiaomi redmi 5 plus",1
+"nikon d800e",1
+"dell latitude 5580 i5 6300u 15 6",1
+"iphone 6s plus",1
+"lenovo thinkpad x220 i5 12 5",1
+"libratone zipp mini",1
+"lenovo thinkpad t410",1
+"hp elitebook 840",1
+"lenovo thinkpad l560 i5 6300u 15",1
+"dell latitude e6520 i5 2540m 15",1
+"samsung sm t825 galaxy tab s3 lt",1
+"canon eos m5",1
+"honor 8a",1
+"oneplus 5",1
+"dell latitude e6530 i5 15 6",1
+"severin sm 3792 stabmixer",1
+"toshiba portege z30 a 1cr",1
+"fujitsu b22w 7 led",1
+"severin raclette grill mit grill",1
+"dell optiplex 990",1
+"lenovo gaming pc advance m92p sf",1
+"hp z420 workstation e5 1650v2 nv",1
+"acer veriton s4620g intel 2nd ge",1
+"hp elitedesk 800 g1 sff i5 4590",1
+"wiko view prime",1
+"dell latitude 13 7370 m7 6y75 13",1
+"huawei y6 2018",1
+"lenovo thinkpad t450 i5 14",1
+"huawei p smart",1
+"honor 8 pro",1
+"hp elitebook 8760w 17 3 i5 2520m",1
+"dell latitude e5450 i5 14",1
+"brother hl 5380dn laserdrucker",1
+"huawei p9 lite",1
+"krups expert pro inox",1
+"fujitsu esprimo e910 e90 intel c",1
+"lenovo thinkpad t440p intel i5 4",1
+"iphone se 2020",1
+"hp z840 workstation xeon e5",1
+"xiaomi mi 9",1
+"hp elitedesk 800 g2 sff",1
+"dell latitude e7450 ultrabook 52",1
+"apple macbook pro 2011 i5 13 3",1
+"honor 8",1
+"apple macbook 2016 intel core m3",1
+"samsung galaxy s5 mini",1
+"tefal cy505e40 multi kocher",1
+"hp elitedesk 705 g1 sff a10",1
+"hp elite 8200 cmt g620",1
+"dell latitude e5250 i5 5300u 12",1
+"dell optiplex 9010 i5",1
+"dell latitude e6330",1
+"dell p2411h 24",1
+"beats solo 2",1
+"lenovo thinkpad w520 i7 2720qm 1",1
+"sony srs btm8 portabler bluetoot",1
+"sony xperia z3",1
+"nokia lumia 930",1
+"xiaomi mi mix 2s",1
+"hp elitebook 820 g3 i5 6300u 12",1
+"samsung galaxy s10 plus",1
+"razer deathstalker chroma gaming",1
+"lenovo thinkcentre m83 i5 4440",1
+"canon eos 750d",1
+"sony xperia t lt30p",1
+"apple airpods pro",1
+"iphone xs",1
+"htc one a9",1
+"harman kardon onyx studio 4",1
+"lenovo thinkpad t560 i5 6300u 15",1
+"hp laserjet pro 200 m251nw farbl",1
+"samsung galaxy s6",1
+"telestar eurosky 2000",1
+"lenovo thinkpad x240",1
+"asus rog phone ii zs660kl",1
+"honor 9 lite",1
+"lenovo thinkcentre m90p sff",1
+"lenovo thinkpad t410 i3 370m",1
+"iphone xs max",1
+"hp elitebook 850 g1 i7 15 6",1
+"hp zbook 15 i7 15 6",1
+"hp z display z22n",1
+"oneplus 3t",1
+"bang and olufsen beolit 15",1
+"hp elite 8100 sff i5 650",1
+"lenovo ideapad 320s 13ikb i5 825",1
+"rowenta vr7048f0 liberty dampfbu",1
+"oppo reno 5g",1
+"hp elitedisplay e190i 19",1
+"fujitsu lifebook s761 i7 13 3",1
+"htc one a9s",1
+"moulinex accessimo grillplatte",1
+"nokia 5 1",1
+"dell optiplex 790 intel 2nd gen",1
+"bq aquaris x2",1
+"sony cyber shot dsc rx100 v",1
+"samsung galaxy note 9",1
+"lenovo thinkstation p300 sff xeo",1
+"apple macbook pro 2012 i5 13 3",1
+"huawei p10 plus",1
+"samsung galaxy a5 2016",1
+"samsung galaxy tab s6 10 5",1
+"iphone 11 pro",1
+"huawei p30 lite",1
+"hp elitedesk 800 g1 twr i7 4790",1
+"hp laserjet p1505 laserdrucker",1
+"xiaomi mi mix 2",1
+"lenovo thinkpad x1 tablet",1
+"corratec e power 28 urban perfor",1
+"fujitsu esprimo d956 e85 sff int",1
+"nokia 7",1
+"hp ultraslim dock 2013 d9y32aa",1
+"dell latitude e6420 i3 14",1
+"gopro 4 hero",1
+"huawei nexus 6p",1
+"hp elitebook 840 g2 i5 5200u 14",1
+"gopro hero 3",1
+"hp compaq 2510p core 2 duo u7700",1
+"lenovo thinkpad yoga 370 i5 7300",1
+"aeg gourmetpro sb9300 standmixer",1
+"playstation 4 pro",1
+"canon eos 5d mark iii",1
+"emporia prime",1
+"apple macbook air 2014 i5 11 6",1
+"microsoft surface pro 3 dock fur",1
+"razer diamondback 2015 chroma ga",1
+"lenovo thinkpad t440 i7 4600u 14",1
+"google pixel 2 xl",1
+"sony xperia x performance",1
+"hp z230 mt workstation e3 1280 v",1
+"samsung galaxy grand prime",1
+"sony xperia xz",1
+"hp elitedesk 800 g1 t i5",1
+"jbl e50 bt",1
+"razer manowar 7 1 gameing headse",1
+"hp color laserjet cp2025n farbla",1
+"blackberry classic q20",1
+"nokia lumia 1020",1
+"hp lp2065 20 1",1
+"google pixel xl",1
+"dell latitude e7240 touch i7 460",1
+"xiaomi mi mix 3",1
+"lenovo thinkpad t440s i5 4200u 1",1
+"rowenta dg8963 dampfbugelstation",1
+"rowenta rr6976 smart force essen",1
+"ipad 2",1
+"sony alpha 7 ii",1
+"telestar digio 33i hd",1
+"dell latitude e6440 i7 4610m 14",1
+"aeg cx8 2 75wr",1
+"samsung galaxy note 10plus",1
+"samsung galaxy j7 2017",1
+"apple magic keyboard",1
+"blaupunkt bluebot xsmart staubsa",1
+"canon eos 5d mark iv",1
+"smsg glx a90 5g",1
+"aeg lx7 2 oko",1
+"huawei mediapad m1",1
+"hp elitedesk 705 g2 dm",1
+"lenovo thinkpad t530 i7 3630qm 1",1
+"samsung galaxy tab s3",1
+"lenovo thinkcentre m91p sff",1
+"fujitsu celsius r940 workstation",1
+"aeg kf 7800 filter kaffeemaschin",1
+"dell optiplex 7010 dt i3 2120",1
+"wiko u feel lite",1
+"fujitsu lifebook t935 2 in 1 tab",1
+"lenovo yoga tab 3 plus 10",1
+"hp z420 workstation e5 2630l nvi",1
+"fujitsu celsius h730 15 6 i7 470",1
+"jbl e55 bt",1
+"dell precision 7530 i7 8850h 15",1
+"beats powerbeats2 wireless",1
+"nokia 3 1",1
+"nokia 8110 4g",1
+"xiaomi mi 9 se",1
+"asus zenfone 3 laser",1
+"hp compaq elite 8300 all in one",1
+"lenovo thinkpad t440 i5 4200u 14",1
+"lenovo thinkpad t550 i5 5200u 15",1
+"lenovo dockingstation pro dock 6",1
+"razer deathadder elite ergonomic",1
+"hp elitedesk 800 g1 sff i5 4570",1
+"krups xn 6008 expert",1
+"oneplus 6",1
+"ipad pro 12 9",1
+"apple pencil 1 gen",1
+"xiaomi redmi note 6 pro",1
+"hp elitebook 2570p i7 3520m 12 5",1
+"nikon d500",1
+"apple macbook air 2017 i 13 3",1
+"hp elitebook 850 g2 i5 5300u 15",1
+"hp elitebook 2560p i5 12 5",1
+"creative muvo mini",1
+"huawei p smart 2019",1
+"puro slim pod",1
+"hp elitebook 2560p 12 5",1
+"dell xps 15 9560 15 6 i7 7700hq",1
+"microsoft surface pro 2017 i7 12",1
+"lavazza jolie plus kapselmaschin",1
+"samsung galaxy s20plus",1
+"telsky s 250 hd",1
+"huawei watch w1",1
+"fujitsu lifebook p702 12 1 i5 33",1
+"dell latitude e5450 i5 5300u 14",1
+"lg w2242t df 22",1
+"samsung gear 360 sm c200",1
+"iphone 11",1
+"samsung b2100",1
+"lenovo thinkpad w540 i7 4800mq 1",1
+"apple wireless keyboard",1
+"lenovo thinkcentre m600 tiny cel",1
+"hp elitebook 840 g1 i5 4200u 14",1
+"severin es 3566 entsafter",1
+"samsung glxy klappklapp",1
+"acer aspire 1 14 pentium silver",1
+"samsung galaxy note 9 duos",1
+"nec multisync ea294wmi 29",1
+"google pixel 4 xl",1
+"canon eos 80d",1
+"motorola moto g6 plus",1
+"lenovo ideapad 320 17ikb i5 8250",1
+"sony xperia z3 plus",1
+"apple macbook pro 2018 13 3 touc",1
+"fujitsu celsius h730 15 6 i7 491",1
+"tefal 5005 plancha grillplatte",1
+"dell precision t7610 xeon e5",1
+"samsung galaxy tab 4 10 1",1
+"sony xperia z5 e6653",1
+"rowenta ep5660 silence soft",1
+"dell precision 7510 e3 1535m v5",1
+"harman kardon classic",1
+"fujitsu celsius w420 workstation",1
+"jbl synchros s500",1
+"lenovo ideapad 320 17abr a12 972",1
+"apple macbook air 2015 i5 13 3",1
+"dell latitude e5420 i3 2310m 14",1
+"dell optiplex 7050 micro usff i5",1
+"fujitsu esprimo e910 sff i5",1
+"apple watch sport 42mm 1st gen",1
+"htc one m9",1
+"xqisit xqs10",1
+"huawei p8 lite",1
+"fujitsu esprimo p920 e85 intel c",1
+"dell latitude e5480 i5 6300u 14",1
+"ipad mini 2",1
+"hp elite 8300 cmt",1
+"dell latitude e6540 i5 15 6",1
+"hp elitedesk 800 g1 dm i5",1
+"dell latitude i5 4200u 14",1
+"dell ultrasharp 2208wfpt 22",1
+"samsung gear s2",1
+"fujitsu display b24w 7 led",1
+"rowenta flower love elite",1
+"samsung galaxy note 8",1
+"dell precision t3610 workstation",1
+"hp probook 640 g1 13 14",1
+"huawei p8 lite 2017",1
+"hp compaq 8200 elite sff",1
+"aeg dampfbugelstation quicksteam",1
+"trdog1",1
+"sony xperia z3 compact",1
+"samsung s7710 galaxy xcover 2",1
+"fujifilm finepix x100f",1
+"microsoft xbox one x",1
+"lenovo thinkpad t430 i5 2520m",1
+"hp z24n",1
+"apple magic mouse",1
+"dell xps 13 9350 i7 6560u 13 3",1
+"lenovo thinkpad t410 i5 14 2",1
+"lenovo thinkpad t540p i7 4800mq",1
+"sony xperia xzs",1
+"fujitsu lifebook e744 14 i5 4310",1
+"canon eos r",1
+"hp elitebook 8560p 15 6 i5 2520m",1
+"lenovo thinkpad t540p i5 4300m 1",1
+"lenovo thinkcentre m57p e8400",1
+"dell k10a",1
+"harman kardon aura",1
+"huawei nova",1
+"samsung galaxy note 4",1
+"nikon d810",1
+"dell latitude e6230 i5 12 5",1
+"telestar td 1110 s",1
+"hp 2570p i5 12 5",1
+"fujitsu esprimo p520 e85 mini to",1
+"technisat satboxx hd",1
+"lenovo thinkstation p410",1
+"rowenta steamforce dw9215",1
+"lenovo thinkpad x230 i5 12 5",1
+"gopro fusion",1
+"dell optiplex 7010 usff intel 3r",1
+"samsung galaxy xcover 4s",1
+"ipad mini 5",1
+"dell xps 13 2in1 9365 17 7y75",1
+"samsung galaxy s20",1
+"beats executive",1
+"jbl pulse 2",1
+"hp z22i",1
+"lenovo thinkvision lt2452p",1
+"rowenta compact power cyclonic",1
+"hp z440 workstation intel xeon e",1
+"fujitsu lifebook s752 i5 3320m 1",1
+"sony xperia x compact",1
+"wiko sunny 2",1
+"motorola moto e4",1
+"hp z230 sff workstation intel co",1
+"lenovo ideapad 320 15ikb i5 8250",1
+"huawei nova plus",1
+"sonos play 5 gen 2",1
+"hp color laserjet pro mfp m176n",1
+"iphone 6",1
+"hp elitebook 8570w i7 3250m 15 6",1
+"lenovo thinkpad 10 gen2",1
+"samsung galaxy tab a 7 0 t280 20",1
+"lenovo thinpad t550 i5 5300u 15",1
+"lg v40 thinq",1
+"hp elitedesk 800 g2 dm i5",1
+"hp elitedesk 705 g3",1
+"dell latitude 5580 i5 6200u 15",1
+"lenovo thinkpad t420 14",1
+"huawei y6s",1
+"sony xperia xz2 compact",1
+"kyocera fs 1370dn laserdrucker",1
+"lenovo thinkcentre m81",1
+"lg k8 2016",1
+"hp elitebook 840 g1 i7 14",1
+"htc desire c",1
+"canon eos 5ds",1
+"rotel entsafter vital 428",1
+"hp compaq elite 8300 ultra slim",1
+"hp elitedisplay e222 21 5",1
+"lavazza induktions milchaufschau",1
+"nokia 4 2",1
+"kyocera fs 1128mfp multifunktion",1
+"samsung galaxy tab s2 9 7",1
+"mac mini core 2 duo",1
+"hp prodesk 400 g2 dm i5",1
+"samsung galaxy a20e",1
+"sony alpha 7r ii",1
+"aeg cx8 2 95gm",1
+"leica sl typ 601",1
+"dell xps 13 9350 i5 6200u 13 3",1
+"lenovo thinkpad t530 i5 2520m 15",1
+"samsung galaxy s4 i9500",1
+"oneplus 5t",1
+"hp elitedesk 800 g1 sff",1
+"xiaomi pocophone f1",1
+"lenovo thinkpad t420 i5 2520m",1
+"alcatel onetouch 2004c",1
+"sony xperia xz3",1
+"lenovo thinkpad x240 i5 3320m 12",1
+"apple keyboarddock mptl2d",1
+"apple watch series 1 aluminium 3",1
+"samsung galaxy s7 edge",1
+"fujitsu esprimo p520 e85 mini",1
+"ipad air 2",1
+"apple macbook air 2013 i5 13 3 4",1
+"apple imac 4k 2015 21 5",1
+"lenovo thinkcentre m93p tiny min",1
+"samsung galaxy a50",1
+"apple magic mouse 2",1
+"fujitsu lifebook p701 12 1 i5 25",1
+"aeg vx6 2",1
+"apple imac 5k 2017 27",1
+"monitor tft 19 dell ultrasharp 1",1
+"ion dashcam 1041 super hd",1
+"lg g7 thinq",1
+"huawei mediapad t5 10 10 1",1
+"beats studio 2 0 wireless",1
+"nokia 8 single sim",1
+"fujitsu scenicview p19 1",1
+"apple macbook pro 2016 13 3",1
+"samsung galaxy j4",1
+"ghost teru gs 2018 e hardtail gr",1
+"ion air pro 3 wi fi hd sport cam",1
+"lenovo tc tiny in one 27",1
+"lenovo thinkcentre m58 usdt e740",1
+"microsoft lumia 950 xl",1
+"fujitsu esprime d556 e85 intel c",1
+"hp elite 8200 cmt i5",1
+"hp elitebook 8560w 15 6",1
+"fujitsu celsius w550 workstation",1
+"lenovo thinkpad t550 i7 5600u 15",1
+"huawei y6 2019",1
+"huawei mediapad m5 10 lite",1
+"hp z640 workstation xeon e5",1
+"google pixel 3a xl",1
+"hp elitebook 850 g1",1
+"rowenta steamforce dw9240",1
+"lenovo thinkcentre e72 twr intel",1
+"tefal mini express wasserkocher",1
+"sony xperia m4 aqua",1
+"aeg km4000 ultramix",1
+"huawei mate 9",1
+"hp elitedesk 800 g1 sff i7",1
+"beats ep",1
+"ion camocam wi fi action camera",1
+"dell optiplex 9020m usff i5",1
+"sony xperia xz1 compact",1
+"apple watch series 2 aluminum 42",1
+"samsung galaxy a71",1
+"rowenta rh8897 air force extreme",1
+"lenovo thinkpad t470s 14 i5 6300",1
+"dell t3600",1
+"fujitsu esprimo p710 e85 intel c",1
+"hp elitebook 840 g1 i5 4310u 14",1
+"thinkpad onelink pro",1
+"fantic fat sport se 2017 e fatbi",1
+"lg g8s thinq",1
+"microsoft surface pro 3 12",1
+"hp compaq 8100 elite cmt i5",1
+"apple macbook air 2019 i5 13 3",1
+"canon image formula dr 2580c fla",1
+"samsung galaxy a8 2018 duos",1
+"fujitsu celsius w510",1
+"oppo reno 10x zoom",1
+"hp prodesk 400 g1 dm i3",1
+"fujitsu lifebook e752 i5 3320m",1
+"samsung galaxy s7 edge olympic g",1
+"hp notebook 8440p i5 14 1",1
+"dell latitude e7350 2 in 1 m5y10",1
+"apple mac mini 2014",1
+"apple macbook pro 2012 i7 13 3",1
+"sony xperia l3",1
+"dell latitude 7280 i5 6300u 12 5",1
+"amazon fire phone",1
+"aeg cx7 2 flex 2 in 1 akku staub",1
+"alcatel 20 05 onetouch",1
+"sony xperia 1",1
+"samsung galaxy tab s5e 10 5",1
+"microsoft surfacebook 2 i7 8650u",1
+"telestar ahd 1000 hdtv sat recei",1
+"fujitsu celsius mobile h730",1
+"fujitsu lifebook e751 i5 2520m 1",1
+"roborock s5 staubsaugerroboter m",1
+"dell latitude e5550 i5 5300u 15",1
+"wiko k kool",1
+"dell latitude e7250 i7 5600u 12",1
+"fujitsu lifebook e751 i5 15 6",1
+"rowenta air force all in one ani",1
+"samsung galaxy s6 edge",1
+"nokia 1 plus",1
+"lenovo dockingstation thinkpad u",1
+"fujitsu esprimo q558 intel core",1
+"ipad mini 1",1
+"sony xperia z2 d6503",1
+"lenovo thinkpad l540 i5 4300m 15",1
+"ipad pro 9 7",1
+"dell optiplex 7010 mt i5 3470",1
+"telestar td 2520 hd hdtv sat rec",1
+"hp zbook 17 g2 i5 4340m 17",1
+"canon eos 6d mark ii",1
+"google pixel 3",1
+"moulinex lm310112 faciclic stand",1
+"lenovo legion y720 15ikb i5 7300",1
+"nokia 3310 2017",1
+"rowenta ir5010 f1 heizlufter",1
+"rowenta access steam",1
+"sony alpha 58",1
+"motorola moto g 2 gen",1
+"fujitsu esprimo p556 e85 micro t",1
+"lenovo thinkcentre m92p sff",1
+"lenovo ideapad 520s 14ikb i5 720",1
+"hp probook 640 g2 i5 14",1
+"honor 9",1
+"xiaomi mi a1",1
+"samsung galaxy a6 2018",1
+"lenovo thinkpad t530 i5 3210m 15",1
+"sony xperia xa",1
+"samsung s27a650d 27",1
+"krups nescafe dolce gust",1
+"apple macbook pro 2016 i5 13 3",1
+"lenovo yoga 720 13ikb i5 7200u 1",1
+"fujitsu lifebook e744 i5 4300m 1",1
+"fantic xf2 gs 007 2018 e mountai",1
+"fujitsu p27t 6 27",1
+"hp probook 450 g6 i5 8265u 15 6",1
+"sony xperia 10",1
+"benq e910 19",1
+"samsung galaxy a80",1
+"dell latitude e5440 i5 4300m 14",1
+"huawei mate 20 x",1
+"hp elitebook 840 g1 i5 14",1
+"samsung galaxy j5 pro",1
+"hp elitebook 8560w i7 2620m 15 6",1
+"dell latitude e7240 i7 4600u 12",1
+"dell latitude e7480 i5 6300u 14",1
+"krups kp 1208 nescafe dolce gust",1
+"honor 10",1
+"ipad 3",1
+"samsung galaxy j1 j100h",1
+"lenovo thinkpad t430s i5 14",1
+"moulinex pc3028",1
+"sony alpha 7s",1
+"fujitsu p line p27t 7 27",1
+"ipad pro 10 5",1
+"dell latitude e6520 i5 15 6",1
+"rowenta silence steam pro dg9222",1
+"dell latitude e6440 i5 4310m 14",1
+"hp laserjet pro 400 color mfp m4",1
+"samsung galaxy s7",1
+"aoc 2219p2",1
+"panasonic lumix dmc g81",1
+"lenovo thinkpad t450 i7 5600u 14",1
+"hp elitebook 8570p i5 3320m 15 6",1
+"apple macbook pro 2017 15 4 touc",1
+"dell latitude 11 5175 tablet",1
+"huawei p30 pro",1
+"rowenta smart force essential",1
+"hp elitebook 8560p i5 15 6",1
+"trkat1",1
+"lg k40",1
+"hp color laserjet pro mfp m476dw",1
+"fujitsu esprimo c700 sdt",1
+"xiaomi mi a2 lite",1
+"samsung galaxy a6plus 2018",1
+"hp elitedesk 800 g1 tower",1
+"beats pill 2",1
+"hp elite 8100 t i5 650",1
+"aoc e2460p",1
+"fujitsu celsius h730 15 6 i7 481",1
+"fujitsu celsius w520",1
+"ipad 4",1
+"beats solo 3 wireless",1
+"fujitsu b24t 7 led 24",1
+"dell latitude e5440 i5 14",1
+"lavazza lm500 minu kapselmaschin",1
+"fantic fat sport gs 888 2018 e f",1
+"hp elitebook 820",1
+"hp elitebook 8470p i5 3320m 14",1
+"lenovo thinkpad t530 i5 3320m 15",1
+"lenovo tab m10 tb x605l 10 1",1
+"rowenta rh8920 air force extreme",1
+"severin heissluft lockenstab",1
+"apple macbook pro 2016 i7 15 4",1
+"hp hstnn ix10",1
+"razer phone 2",1
+"panzerglass samsung",1
+"viewsonic va2465sh",1
+"lenovo thinkpad t460s i7 6600u 1",1
+"samsung galaxy tab s4 10 5",1
+"oneplus 7 pro",1
+"nokia 3 2",1
+"lenovo gaming pc starter m92p sf",1
+"dell latitude e7480 i7 6600u 14",1
+"ipad pro 11 0 2018",1
+"dell latitude e6420 i5 14",1
+"fujitsu esprimo q910 intel core",1
+"apple macbook pro 2011 i7 2760qm",1
+"huawei p smart z",1
+"sony xperia e1",1
+"telsky s 190 hd",1
+"sony alpha 7r iii",1
+"fujitsu esprimo p910 intel core",1
+"fujitsu esprimo q920 i5 4590t",1
+"lenovo thinkvision l1900 pa 19",1
+"samsung galaxy a5 2017",1
+"fossil q explorist",1
+"lenovo thinkstation s30 e5",1
+"samsung galaxy a7 duos 2018 a750",1
+"huawei mate s",1
+"razer ornata chroma membrane gam",1
+"huawei mediapad m5 10",1
+"jbl charge 3",1
+"huawei p20 pro",1
+"rowenta rh8819wh air force extre",1
+"dell optiplex 990 i5",1
+"honor 8 premium",1
+"dell latitude e5450 i5 4310u 14",1
+"iphone 7 plus",1
+"lg 24mb35py b 23 8",1
+"dell optiplex 7010dt i3",1
+"jbl everest elite 700",1
+"apple iphone 8",1
+"fujitsu lifebook e752",1
+"samsung galaxy tab 4 7 0 t230 7",1
+"rowenta air forec 360",1
+"dell precision m4800 i7 4800mq 1",1
+"beats solo 2 wireless",1
+"dell latitude e6430s i5 3320m 14",1
+"panzerglass iphone 6 6s 7 8 stan",1
+"samsung activity tracker ei an90",1
+"hp elitepad 900 g1 tablet",1
+"mac mini i7",1
+"nokia 5",1
+"huawei p8",1
+"motorola moto g",1
+"hp elitebook 850 g2 i5 15 6",1
+"huawei mediapad m2 10",1
+"panasonic lumix dmc fz1000 gehau",1
+"apple macbook pro late 2011 i5 1",1
+"dell latitude e5530 i5 3340m 15",1
+"samsung galaxy note 10 lite",1
+"dell latitude e6430 i5 3340m 14",1
+"htc one m9 prime camera edition",1
+"htc 10 evo",1
+"htc desire eye coral reef",1
+"hp elitedesk 800 g1 twr i5",1
+"vizio s2121w d0 2 1 sound stand",1
+"trekstor primebook u13b n4000 13",1
+"samsung galaxy s10",1
+"honor play",1
+"lenovo thinkpad t440p i5 4300m 1",1
+"samsung galaxy a6 2018 duos",1
+"hp zbook 17 i7 17",1
+"hp elitebook 820 g2 i5 5300u 12",1
+"beats heartbeats by lady gaga",1
+"canon eos 1d x mark ii",1
+"canon eos 4000d",1
+"lenovo thinkpad t440s touch i5 4",1
+"samsung galaxy j3 2016",1
+"xiaomi redmi 4a",1
+"dell optiplex 3020 business pc",1
+"fujitsu esprimo e520 e85 intel c",1
+"apple macbook pro 2014 13 3",1
+"jbl clip",1
+"dell latitude e5550 i5 5200u 15",1
+"lenovo thinkpad w540 i7 4810mq 1",1
+"hanns g he195apb 18 5",1
+"canon eos 6d",1
+"hp z600 workstation 2 x xeon e55",1
+"microsoft surface pro 3 mit touc",1
+"rowenta vu6670fo eole infinite t",1
+"hp elite 8000 sff",1
+"lenovo thinkpad t430s i5 3320m 1",1
+"lenovo thinkpad x250 i5 12 5",1
+"huawei p30",1
+"xiaomi redmi 4x",1
+"dell latitude 7490 i5 8350u 14",1
+"cubot x18",1
+"fujitsu esprimo p520 e85 m ce",1
+"samsung galaxy s3 mini",1
+"hp z820 2x e5 2640",1
+"sony xperia z premium",1
+"aeg cx8 2 75ffp ultrapower",1
+"dell precision t7810 workstation",1
+"lenovo thinkpad l570 i5 6200u 15",1
+"ipad 6 2018",1
+"hp elite 8100 t",1
+"panasonic lumix dmc gx80 gehause",1
+"dell latitude e7470 i5 6300u 14",1
