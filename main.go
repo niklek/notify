@@ -2,8 +2,10 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"notify/notifier"
+	"os"
 )
 
 func main() {
@@ -11,29 +13,38 @@ func main() {
 	url := "localhost:8080"
 	// TODO: Read interval
 
-	// TODO: Read messages
-	messages := []*notifier.Message{
-		&notifier.Message{
-			Body: "test 1",
-		},
-		&notifier.Message{
-			Body: "test 2",
-		},
-		&notifier.Message{
-			Body: "test 3",
-		},
-	}
-
-	fmt.Println("starting with", len(messages), "messages")
-
+	// initialize Notifier
 	cfg := notifier.Config{
 		Url: url,
 	}
-
 	n := notifier.NewNotifier(cfg)
 
+	// TODO: Read messages
+	var messages []*notifier.Message
+	var in = bufio.NewScanner(os.Stdin)
+
+	for in.Scan() {
+		line := in.Text()
+		if len(line) == 0 {
+			continue
+		}
+
+		m := &notifier.Message{
+			Body: line,
+		}
+		messages = append(messages, m)
+
+		if len(messages) > 10 {
+			fmt.Println("sending", len(messages), "messages")
+			_ = n.Send(messages)
+			messages = []*notifier.Message{} // reset the slice TODO: use memory pool
+		}
+	}
+
 	// TODO: send messages every X seconds
-	_ = n.Send(messages)
+	if len(messages) > 0 {
+		_ = n.Send(messages)
+	}
 
 	// TODO: handle graceful shutdown
 	fmt.Println("complete")
