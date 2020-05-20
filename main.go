@@ -4,6 +4,7 @@ package main
 import (
 	"bufio"
 	"context"
+	"flag"
 	"fmt"
 	"math/rand"
 	"notify/notifier"
@@ -13,14 +14,26 @@ import (
 	"time"
 )
 
+// Workaround to parse short and long flags
+// TODO: parse interval when not a number
+var intervalFlag = flag.Int("interval", 5, "Notification interval, sec") // long interval flag
+func init() {
+	flag.IntVar(intervalFlag, "i", 5, "Notification interval, sec") // short interval flag
+}
+
 func main() {
-	// TODO: Read url from a param
-	url := "localhost:8080"
+	var (
+		url      string
+		interval int
+	)
 
-	// TODO: Read interval
-	interval := 1
+	// Parse flags
+	// TODO: print usage, support --help
+	flag.StringVar(&url, "url", "", "Target server url for sending notifications")
+	flag.Parse()
+	interval = *intervalFlag
 
-	// Buffer size to limit Parser
+	// Buffer size to limit fast Parser
 	messagesCap := 100
 	// Messages buffer to collect from Parser
 	// Parser is blocked when the channel is full
