@@ -9,6 +9,7 @@ import (
 	"time"
 )
 
+// Default number of workers for sending messages
 const MAX_WORKERS = 100
 
 // Message represent a single message which will be send to a remote server
@@ -92,9 +93,6 @@ func (n *Notifier) Send(messages []Message) {
 	// TODO: retry logic
 	// TODO: err channel
 
-	// Wait to complete
-	//fmt.Println("[NOTIFIER] waiting for workers...")
-	//n.wg.Wait()
 	fmt.Println("[NOTIFIER] all messages are distributed")
 }
 

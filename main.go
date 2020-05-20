@@ -33,16 +33,17 @@ func main() {
 	flag.Parse()
 	interval = *intervalFlag
 
+	// TODO: make part of Parser
 	// Buffer size to limit fast Parser
 	messagesCap := 100
 	// Messages buffer to collect from Parser
 	// Parser is blocked when the channel is full
 	messagesCh := make(chan notifier.Message, messagesCap)
 
-	// Init Reader for Parser
+	// Init Scanner for Parser
 	var in = bufio.NewScanner(os.Stdin)
 
-	// Cancellation context for handling SIGINT,..
+	// Cancellation context to stop the process (parsing, sending)
 	ctx, cancelFn := context.WithCancel(context.Background())
 
 	// Initialize Notifier with a confif
@@ -64,6 +65,7 @@ func main() {
 
 	// Start Parser
 	go Parser(ctx, in, messagesCh)
+
 	// Start Notifier
 	n.Start()
 	// Start Sender
@@ -105,8 +107,6 @@ func Parser(ctx context.Context, in *bufio.Scanner, out chan<- notifier.Message)
 // Sender reads from in channel, collects messages into a local buffer
 // Every <interval> * seconds flushes the local buffer to Notifier
 func Sender(ctx context.Context, n *notifier.Notifier, in <-chan notifier.Message, interval int) {
-	//defer wg.Done()
-
 	// Setup timer for intervals
 	ticker := time.NewTicker(time.Duration(interval) * time.Second)
 	defer ticker.Stop()
