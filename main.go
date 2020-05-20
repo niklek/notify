@@ -107,47 +107,47 @@ func Parser(ctx context.Context, in *bufio.Scanner, out chan<- notifier.Message)
 	}
 }
 
-// Sender reads from in channel, collects messages into a local buffer
-// Every <interval> * seconds flushes the local buffer to Notifier
+// Sender reads from in channel, collects messages into a local buffered channel
+// Every <interval> * seconds flushes collected messages to Notifier
 func Sender(ctx context.Context, n *notifier.Notifier, in <-chan notifier.Message, interval int) {
 	// Setup timer for intervals
 	ticker := time.NewTicker(time.Duration(interval) * time.Second)
 	defer ticker.Stop()
-	// Wait for Notifier to complete
+	// Allow Notifier to complete
 	defer n.Stop()
 
-	// TODO: make a buffered channel
-	var messages []notifier.Message // local buffer
+	// Init intermediate queue to avoid sending all at once
+	q := make(chan notifier.Message, 100*3)
+	defer close(q)
 
-	for {
+	var messages []notifier.Message // slice of messages for sending to Notifier on timer
+
+	// Read messages from Parser into the intermediate chanel
+	for m := range in {
+	l:
 		select {
-		case m, ok := <-in:
-			if !ok {
-				// The in channel is closed, stop collecting messages
-				fmt.Println("[SENDER] in channel is closed")
-				n.Send(messages)
-				// TODO: handle unsent messages
-				return
-			}
-			// collect a message to the buffer
-			messages = append(messages, m)
-
 		case <-ticker.C:
-			// Skip empty sendings
-			if len(messages) == 0 {
-				continue
+			// On timer: collect messages from the queue into the slice
+			for {
+				select {
+				case msg := <-q:
+					messages = append(messages, msg)
+				default:
+					fmt.Println("[SENDER] collected", len(messages), "messages")
+					// Send collected messages and flush the slice
+					n.Send(messages)
+					messages = []notifier.Message{}
+					break l
+				}
 			}
 
-			// Send messages from the buffer and flush the buffer
-			n.Send(messages)
-			messages = []notifier.Message{}
-
+		case q <- m:
+			// the queue is full, waiting for timer...
 		case <-ctx.Done():
-			// Sending via context to the Notifier
 			fmt.Println("[SENDER] received [STOP] signal")
 			return
 		}
-	} // for
+	} // for range in
 }
 
 // Handles failed messages
