@@ -66,6 +66,9 @@ func main() {
 	// Start Parser
 	go Parser(ctx, in, messagesCh)
 
+	// Run error handling
+	go HandleErrors(n.ErrChan())
+
 	// Start Notifier
 	n.Start()
 	// Start Sender
@@ -145,4 +148,14 @@ func Sender(ctx context.Context, n *notifier.Notifier, in <-chan notifier.Messag
 			return
 		}
 	} // for
+}
+
+// Handles failed messages
+// TODO: retry logic
+func HandleErrors(in <-chan notifier.Message) {
+	for m := range in {
+		if m.Err != nil {
+			fmt.Println("[MAIN] message:", m.Body, "error:", m.Err)
+		}
+	}
 }

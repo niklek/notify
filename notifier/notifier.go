@@ -36,6 +36,7 @@ type Notifier struct {
 	stopFn context.CancelFunc
 	wg     *sync.WaitGroup
 	q      chan Message // buffered channel for sending messages, buffer size is cfg.NumWorkers * 2
+	qerr   chan Message // buffered channel for failed messages
 }
 
 // Config contains all the settings for Notifier
@@ -64,6 +65,7 @@ func NewNotifier(cfg Config) *Notifier {
 		stopFn: stopFn,
 		wg:     &sync.WaitGroup{},
 		q:      make(chan Message, cfg.NumWorkers*2),
+		qerr:   make(chan Message, cfg.NumWorkers*2),
 	}
 }
 
@@ -72,7 +74,7 @@ func (n *Notifier) Start() {
 	// Start cfg.NumWorkers workers
 	for i := 0; i < n.cfg.NumWorkers; i++ {
 		n.wg.Add(1)
-		go worker(n.ctx, i, n.q, n.cfg.Url, n.wg)
+		go worker(n.ctx, i, n.q, n.qerr, n.cfg.Url, n.wg)
 	}
 
 	fmt.Println("[NOTIFIER] started", n.cfg.NumWorkers, "workers")
@@ -86,8 +88,13 @@ func (n *Notifier) Stop() {
 	// Send stop to workers
 	n.stopFn()
 
+	// waiting for all workers to complete
 	fmt.Println("[NOTIFIER] [STOP] waiting for all workers")
 	n.wg.Wait()
+
+	// nobody can write into err channel
+	close(n.qerr)
+
 	fmt.Println("[NOTIFIER] is complete")
 }
 
@@ -101,14 +108,17 @@ func (n *Notifier) Send(messages []Message) {
 		n.q <- m
 	}
 
-	// TODO: retry logic
-	// TODO: err channel
-
 	fmt.Println("[NOTIFIER] all messages are distributed")
 }
 
+// ErrChan returns a buffered channel on which the caller can receive failed messages
+func (n *Notifier) ErrChan() <-chan Message {
+	return n.qerr
+}
+
 // Worker: reads from a q channel and sends a message
-func worker(ctx context.Context, i int, q <-chan Message, url string, wg *sync.WaitGroup) {
+// Failed messages with anattached errors go to qerr channel
+func worker(ctx context.Context, i int, q <-chan Message, qerr chan<- Message, url string, wg *sync.WaitGroup) {
 	defer wg.Done()
 	// TODO: unsent messages can go to err channel
 	// Drain channel on cancel
@@ -131,9 +141,11 @@ func worker(ctx context.Context, i int, q <-chan Message, url string, wg *sync.W
 			// Sending a notification
 			err = sendNotificationWithClient(client, url, m.Body)
 			if err != nil {
-				// TODO: Move the message into err channel
+				// Set theerror and move the message into err channel
 				m.Err = err
-				log.Println("[WORKER", i, "] error:", err)
+				// Is Blocked when the buffer is full
+				// TODO: we can drop failed messages when there are too many
+				qerr <- m
 				continue
 			}
 			fmt.Println("id:", i, "[SENT] m:", m)
