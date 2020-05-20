@@ -1,4 +1,4 @@
-// Library for sending messages to a url
+// Library for sending messages to a target url via POST using multiple workers
 package notifier
 
 import (
@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-const MAX_WORKERS = 10
+const MAX_WORKERS = 100
 
 // Message represent a single message which will be send to a remote server
 type Message struct {
@@ -21,6 +21,8 @@ type Message struct {
 type Notifier struct {
 	cfg Config
 	ctx context.Context
+	wg  *sync.WaitGroup
+	q   chan Message // internal channel for sending messages
 }
 
 // Config contains all the settings for Notifier
@@ -43,44 +45,54 @@ func NewNotifier(ctx context.Context, cfg Config) *Notifier {
 	return &Notifier{
 		cfg: cfg,
 		ctx: ctx,
+		wg:  &sync.WaitGroup{},
 	}
+}
+
+// Init internal queue and Start workers
+func (n *Notifier) Start() {
+	// Init queue for workers
+	n.q = make(chan Message, n.cfg.NumWorkers*2)
+
+	// Start cfg.NumWorkers workers
+	for i := 0; i < n.cfg.NumWorkers; i++ {
+		n.wg.Add(1)
+		go worker(n.ctx, i, n.q, n.wg)
+	}
+
+	fmt.Println("[NOTIFIER] started", n.cfg.NumWorkers, "workers")
+}
+
+// Handle shutdown, wait for all workers to complete
+func (n *Notifier) Stop() {
+	close(n.q)
+	// TODO: send cancel to workers in case ...
+	fmt.Println("[NOTIFIER] [STOP] waiting for all workers")
+	n.wg.Wait()
+	fmt.Println("[NOTIFIER] is complete")
 }
 
 // Sends all messages to url using N workers
 func (n *Notifier) Send(messages []Message) {
 	fmt.Println("[NOTIFIER] received", len(messages), "messages")
 
-	wg := &sync.WaitGroup{}
-
-	// sending channel
-	q := make(chan Message, n.cfg.NumWorkers*2)
-
-	// Start all workers
-	// TODO: only once on Start
-	for i := 0; i < n.cfg.NumWorkers; i++ {
-		wg.Add(1)
-		go worker(n.ctx, i, q, wg)
-	}
-
-	fmt.Println("started", n.cfg.NumWorkers, "workers")
-
 	// Distribute new messages to workers
 	for _, m := range messages {
-		q <- m // TODO: wrap a Message with an error
+		// Is Blocked when the buffer is full
+		n.q <- m
 	}
-	close(q)
 
 	// TODO: retry logic
 	// TODO: err channel
 
 	// Wait to complete
-	fmt.Println("[NOTIFIER] waiting for workers...")
-	wg.Wait()
-	fmt.Println("[NOTIFIER] is complete")
+	//fmt.Println("[NOTIFIER] waiting for workers...")
+	//n.wg.Wait()
+	fmt.Println("[NOTIFIER] all messages are distributed")
 }
 
 // Worker: reads from a q channel and sends a message
-func worker(ctx context.Context, i int, q chan Message, wg *sync.WaitGroup) {
+func worker(ctx context.Context, i int, q <-chan Message, wg *sync.WaitGroup) {
 	defer wg.Done()
 	// TODO: unsent messages can go to err channel
 	// Drain channel on cancel
@@ -101,4 +113,5 @@ func worker(ctx context.Context, i int, q chan Message, wg *sync.WaitGroup) {
 			fmt.Println("id:", i, "m:", m)
 		}
 	}
+	fmt.Println("[WORKER", i, "] completed")
 }

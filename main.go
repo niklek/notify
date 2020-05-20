@@ -9,7 +9,6 @@ import (
 	"notify/notifier"
 	"os"
 	"os/signal"
-	"sync"
 	"syscall"
 	"time"
 )
@@ -30,36 +29,32 @@ func main() {
 	// Init Reader for Parser
 	var in = bufio.NewScanner(os.Stdin)
 
-	// Init WaitGroup and cancellation context
-	wg := &sync.WaitGroup{}
+	// Cancellation context for handling SIGINT,..
 	ctx, cancelFn := context.WithCancel(context.Background())
 
-	// Initialize Notifier
+	// Initialize Notifier with a confif
 	cfg := notifier.Config{
 		Url: url,
+		//NumWorkers: 100, // Custom number of sending workers
 	}
 	n := notifier.NewNotifier(ctx, cfg)
 
 	// Register signal handler, only SIGINT
 	sigc := make(chan os.Signal)
-	signal.Notify(sigc, syscall.SIGINT)
+	signal.Notify(sigc, syscall.SIGINT, syscall.SIGTERM)
 	// Wait for sygnal, cancel the process
 	go func() {
 		<-sigc
-		fmt.Println("[SIGINT] signal")
+		fmt.Println("[SIG*] signal from OS")
 		cancelFn()
 	}()
 
 	// Start Parser
 	go Parser(ctx, in, messagesCh)
-
+	// Start Notifier
+	n.Start()
 	// Start Sender
-	//wg.Add(1)
-	Sender(ctx, n, messagesCh, interval) // wg,
-
-	// We need to wait for Sender to complete
-	fmt.Println("[MAIN] waiting for Sender to complete...")
-	wg.Wait()
+	Sender(ctx, n, messagesCh, interval)
 
 	fmt.Println("[MAIN] is complete")
 }
@@ -69,7 +64,6 @@ func Parser(ctx context.Context, in *bufio.Scanner, out chan<- notifier.Message)
 	// Completed parsing, no more new messages
 	defer close(out)
 
-	fmt.Println(time.Now(), "[PARSER] starting...")
 	for in.Scan() {
 		line := in.Text()
 		if line == "" {
@@ -97,12 +91,14 @@ func Parser(ctx context.Context, in *bufio.Scanner, out chan<- notifier.Message)
 
 // Sender reads from in channel, collects messages into a local buffer
 // Every <interval> * seconds flushes the local buffer to Notifier
-func Sender(ctx context.Context, n *notifier.Notifier, in <-chan notifier.Message, interval int) { // , wg *sync.WaitGroup
+func Sender(ctx context.Context, n *notifier.Notifier, in <-chan notifier.Message, interval int) {
 	//defer wg.Done()
 
 	// Setup timer for intervals
 	ticker := time.NewTicker(time.Duration(interval) * time.Second)
 	defer ticker.Stop()
+	// Wait for Notifier to complete
+	defer n.Stop()
 
 	// TODO: make a buffered channel
 	var messages []notifier.Message // local buffer
