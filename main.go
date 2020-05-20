@@ -50,12 +50,12 @@ func main() {
 		Url: url,
 		//NumWorkers: 100, // Custom number of sending workers
 	}
-	n := notifier.NewNotifier(ctx, cfg)
+	n := notifier.NewNotifier(cfg)
 
 	// Register signal handler, only SIGINT
 	sigc := make(chan os.Signal)
 	signal.Notify(sigc, syscall.SIGINT, syscall.SIGTERM)
-	// Wait for sygnal, cancel the process
+	// Wait for sygnal, stop the process (parsing, reading)
 	go func() {
 		<-sigc
 		fmt.Println("[SIG*] signal from OS")

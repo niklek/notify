@@ -19,10 +19,11 @@ type Message struct {
 
 // Notifier manages sending incoming messages to a target url
 type Notifier struct {
-	cfg Config
-	ctx context.Context
-	wg  *sync.WaitGroup
-	q   chan Message // internal channel for sending messages
+	cfg    Config
+	ctx    context.Context
+	stopFn context.CancelFunc
+	wg     *sync.WaitGroup
+	q      chan Message // buffered channel for sending messages, buffer size is cfg.NumWorkers * 2
 }
 
 // Config contains all the settings for Notifier
@@ -31,8 +32,8 @@ type Config struct {
 	NumWorkers int    // Number of workers for sending
 }
 
-// Initialize Notifier with a config and context
-func NewNotifier(ctx context.Context, cfg Config) *Notifier {
+// Initialize Notifier with a config
+func NewNotifier(cfg Config) *Notifier {
 	if cfg.Url == "" {
 		log.Fatal("[NOTIFIER] Url is required")
 		return nil
@@ -42,18 +43,20 @@ func NewNotifier(ctx context.Context, cfg Config) *Notifier {
 		cfg.NumWorkers = MAX_WORKERS
 	}
 
+	// Cancellation context to stop workers
+	ctx, stopFn := context.WithCancel(context.Background())
+
 	return &Notifier{
-		cfg: cfg,
-		ctx: ctx,
-		wg:  &sync.WaitGroup{},
+		cfg:    cfg,
+		ctx:    ctx,
+		stopFn: stopFn,
+		wg:     &sync.WaitGroup{},
+		q:      make(chan Message, cfg.NumWorkers*2),
 	}
 }
 
 // Init internal queue and Start workers
 func (n *Notifier) Start() {
-	// Init queue for workers
-	n.q = make(chan Message, n.cfg.NumWorkers*2)
-
 	// Start cfg.NumWorkers workers
 	for i := 0; i < n.cfg.NumWorkers; i++ {
 		n.wg.Add(1)
@@ -65,8 +68,12 @@ func (n *Notifier) Start() {
 
 // Handle shutdown, wait for all workers to complete
 func (n *Notifier) Stop() {
+	// no more new messages
 	close(n.q)
-	// TODO: send cancel to workers in case ...
+
+	// Send stop to workers
+	n.stopFn()
+
 	fmt.Println("[NOTIFIER] [STOP] waiting for all workers")
 	n.wg.Wait()
 	fmt.Println("[NOTIFIER] is complete")
