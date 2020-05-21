@@ -35,7 +35,7 @@ func main() {
 
 	// TODO: make part of Parser
 	// Buffer size to limit fast Parser
-	messagesCap := 100
+	messagesCap := 100 * 4
 	// Messages buffer to collect from Parser
 	// Parser is blocked when the channel is full
 	messagesCh := make(chan notifier.Message, messagesCap)
@@ -81,7 +81,7 @@ func main() {
 func Parser(ctx context.Context, in *bufio.Scanner, out chan<- notifier.Message) {
 	// Completed parsing, no more new messages
 	defer close(out)
-
+	i := 0
 	for in.Scan() {
 		line := in.Text()
 		if line == "" {
@@ -99,12 +99,14 @@ func Parser(ctx context.Context, in *bufio.Scanner, out chan<- notifier.Message)
 			out <- notifier.Message{
 				Body: line,
 			}
+			i++
 		}
 
 		// temp slow down the Parser up to 5ms per line read
-		r := rand.Intn(50)
+		r := rand.Intn(5)
 		time.Sleep(time.Duration(r) * time.Millisecond)
 	}
+	fmt.Println("[PARSER] sent", i, "messages")
 }
 
 // Sender reads from in channel, collects messages into a local buffered channel
@@ -116,38 +118,47 @@ func Sender(ctx context.Context, n *notifier.Notifier, in <-chan notifier.Messag
 	// Allow Notifier to complete
 	defer n.Stop()
 
-	// Init intermediate queue to avoid sending all at once
-	q := make(chan notifier.Message, 100*3)
-	defer close(q)
-
-	var messages []notifier.Message // slice of messages for sending to Notifier on timer
+	// Init sender queue to avoid sending all at once (buffered)
+	senderq := make(chan notifier.Message, 100*3)
+	defer close(senderq)
 
 	// Read messages from Parser into the intermediate chanel
 	for m := range in {
-	l:
 		select {
 		case <-ticker.C:
-			// On timer: collect messages from the queue into the slice
-			for {
-				select {
-				case msg := <-q:
-					messages = append(messages, msg)
-				default:
-					fmt.Println("[SENDER] collected", len(messages), "messages")
-					// Send collected messages and flush the slice
-					n.Send(messages)
-					messages = []notifier.Message{}
-					break l
-				}
-			}
-
-		case q <- m:
-			// the queue is full, waiting for timer...
+			// On timer: collect messages from the queue into a slice
+			messages := queueToSlice(senderq)
+			messages = append(messages, m) // append missing message on this iteration
+			// Send collected messages
+			n.Send(messages)
+		case senderq <- m:
+			// the senderq is full, waiting for timer to proceed
 		case <-ctx.Done():
-			fmt.Println("[SENDER] received [STOP] signal")
+			// Handling intermediate queue
+			messages := queueToSlice(senderq)
+			fmt.Println("[SENDER] received [STOP] signal.", len(messages), "messages will not be send")
 			return
 		}
 	} // for range in
+
+	// Check the queue and send the rest
+	<-ticker.C
+	messages := queueToSlice(senderq)
+	n.Send(messages)
+}
+
+// queueToSlice reads from a buffered channel all items into a slice, then returns the slice
+func queueToSlice(q <-chan notifier.Message) []notifier.Message {
+	// Init a slice of messages for sending to Notifier on timer
+	messages := make([]notifier.Message, 0, 100*3+1)
+	for {
+		select {
+		case msg := <-q:
+			messages = append(messages, msg)
+		default:
+			return messages
+		}
+	}
 }
 
 // Handles failed messages
