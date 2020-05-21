@@ -78,7 +78,7 @@ func main() {
 	go Parser(ctx, in, messagesCh)
 
 	// Start error handling
-	go HandleErrors(ctx, n.ErrChan())
+	go HandleErrors(n.ErrChan())
 
 	// Start Notifier
 	n.Start()
@@ -177,7 +177,9 @@ func queueToSlice(q <-chan notifier.Message) []notifier.Message {
 func HandleErrors(in <-chan notifier.Message) {
 	for m := range in {
 		if m.Err != nil {
-			fmt.Println("[MAIN] message:", m.Body, "error:", m.Err)
+			fmt.Println("[HandleErrors] failed message:", m.Body, "error:", m.Err)
+		} else {
+			fmt.Println("[HandleErrors] cancelled message:", m.Body)
 		}
 	}
 }
