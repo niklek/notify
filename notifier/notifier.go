@@ -22,7 +22,7 @@ import (
 )
 
 // Default number of workers for sending messages
-const MAX_WORKERS = 100
+const MAX_WORKERS = 20
 
 // HTTP Request timeout
 const HTTP_REQUEST_TIMEOUT = 10
@@ -65,10 +65,10 @@ func NewNotifier(cfg Config) *Notifier {
 		cfg.NumWorkers = MAX_WORKERS
 	}
 	if cfg.SendingQueueSize == 0 {
-		cfg.SendingQueueSize = cfg.NumWorkers * 3
+		cfg.SendingQueueSize = cfg.NumWorkers * 5
 	}
 	if cfg.ErrorQueueSize == 0 {
-		cfg.ErrorQueueSize = cfg.NumWorkers * 3
+		cfg.ErrorQueueSize = cfg.NumWorkers * 10
 	}
 
 	// Cancellation context to stop workers
@@ -126,11 +126,11 @@ func (n *Notifier) Send(messages []Message) {
 
 	// Distribute new messages to workers
 	for _, m := range messages {
-		// Is Blocked when the buffer is full
+		// Is Blocked when the sending channel is full
 		n.q <- m
 	}
 
-	fmt.Println("[NOTIFIER] all messages sent to workers")
+	fmt.Println("[NOTIFIER] all messages are sent to workers")
 }
 
 // ErrChan returns a buffered channel on which the caller can receive failed messages
@@ -138,16 +138,10 @@ func (n *Notifier) ErrChan() <-chan Message {
 	return n.qerr
 }
 
-// Worker: reads from a q channel and sends a message
-// Failed messages with anattached errors go to qerr channel
+// worker: reads from the q channel and sends messages
+// Failed messages with attached errors go to the error channel
 func worker(ctx context.Context, i int, q <-chan Message, qerr chan<- Message, url string, wg *sync.WaitGroup) {
 	defer wg.Done()
-	// TODO: unsent messages can go to err channel
-	// Drain channel on cancel
-	defer func() {
-		for range q {
-		}
-	}()
 
 	var err error
 	// create a HTTP client for sending all the notifications
