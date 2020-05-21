@@ -15,12 +15,19 @@ Remaining failed messages in the error queue will be removed before exit when `S
 Each worker creates a custom HTTP client with specified timeouts, used for sending messages.
 Failed messages will be added to the error queue.
 
+## Run tests
+
+```
+cd notifier/
+go test -v
+```
 
 # Notify (the Executable)
 
 `Notify` is an utility to send text messages using `Notifier` package.
 
 `Notifier` will be initialized with `url` taken from a flag, *url* is required.
+
 On Start, `Notifier` will create N workers to handle the incoming messages.
 
 `Notify` has the following parts:
