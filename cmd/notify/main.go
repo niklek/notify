@@ -40,6 +40,7 @@ func init() {
 	flag.IntVar(intervalFlag, "i", intervalDefault, "Notification interval, sec") // short interval flag
 }
 
+// TODO: read DEBUG from .env to turn off debug/log messages
 func main() {
 	var (
 		url      string
@@ -89,7 +90,7 @@ func main() {
 	// Start Sender
 	Sender(ctx, n, parserq, interval)
 
-	fmt.Println("[MAIN] is complete")
+	fmt.Println("[NOTIFY] is complete")
 }
 
 // Parser reads from Scanner and sends to out channel each line as a notifier.Message
@@ -173,13 +174,12 @@ func queueToSlice(q <-chan notifier.Message) []notifier.Message {
 }
 
 // Handles failed messages
-// TODO: retry logic
+// TODO: retry logic or printing into a separate error log
 func HandleErrors(in <-chan notifier.Message) {
+	i := 0
 	for m := range in {
-		if m.Err != nil {
-			fmt.Println("[HandleErrors] failed message:", m.Body, "error:", m.Err)
-		} else {
-			fmt.Println("[HandleErrors] cancelled message:", m.Body)
-		}
+		i++
+		fmt.Printf("[HandleErrors] failed message:%s error:%s\n", m.Body, m.Err)
 	}
+	fmt.Println("[HandleErrors] failed messages:", i)
 }

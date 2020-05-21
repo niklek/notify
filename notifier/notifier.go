@@ -99,7 +99,7 @@ func (n *Notifier) Start() {
 func (n *Notifier) Stop() {
 	// Drain error channel on cancel
 	defer func() {
-		fmt.Println("[NOTIFIER] drop", len(n.qerr), "messages")
+		fmt.Println("[NOTIFIER] drop", len(n.qerr), "messages from err channel")
 		for range n.qerr {
 		}
 	}()
@@ -111,7 +111,7 @@ func (n *Notifier) Stop() {
 	// n.stopFn() // Disabled: allow to complete all messages
 
 	// waiting for all workers to complete
-	fmt.Println("[NOTIFIER] [STOP] waiting for all workers")
+	//fmt.Println("[NOTIFIER] [STOP] waiting for all workers")
 	n.wg.Wait()
 
 	// no more new errors
@@ -130,7 +130,7 @@ func (n *Notifier) Send(messages []Message) {
 		n.q <- m
 	}
 
-	fmt.Println("[NOTIFIER] all messages are sent to workers")
+	//fmt.Println("[NOTIFIER] all messages are sent to workers")
 }
 
 // ErrChan returns a buffered channel on which the caller can receive failed messages
@@ -156,9 +156,9 @@ func worker(ctx context.Context, i int, q <-chan Message, qerr chan<- Message, u
 			// Drop the last message when error channel is full
 			select {
 			case qerr <- m:
-				fmt.Println("[WORKER", i, "] added last message to err channel")
+				//fmt.Println("[WORKER", i, "] added last message to err channel")
 			default:
-				fmt.Println("[WORKER", i, "] can not add last message to err channel")
+				//fmt.Println("[WORKER", i, "] can not add last message to err channel")
 			}
 			return
 
