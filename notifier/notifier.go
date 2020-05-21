@@ -1,4 +1,11 @@
 // Library for sending messages to a target url via POST using multiple workers
+// Start creates N workers
+// Send receives a slice of Message adds each message to the sending queue used by workers
+// Stop waits for workers to complete the sending from the sending queue,
+// remaining failed messages in the error queue will be removed before exit
+//
+// Each worker creates a custom HTTP client with specified timeouts, used for sending messages
+// Failed messages will be added to Notifier.qerr buffered channel
 package notifier
 
 import (
@@ -90,17 +97,24 @@ func (n *Notifier) Start() {
 
 // Handle shutdown, wait for all workers to complete
 func (n *Notifier) Stop() {
+	// Drain error channel on cancel
+	defer func() {
+		fmt.Println("[NOTIFIER] drop", len(n.qerr), "messages")
+		for range n.qerr {
+		}
+	}()
+
 	// no more new messages
 	close(n.q)
 
 	// Send stop to workers
-	n.stopFn()
+	// n.stopFn() // Disabled: allow to complete all messages
 
 	// waiting for all workers to complete
 	fmt.Println("[NOTIFIER] [STOP] waiting for all workers")
 	n.wg.Wait()
 
-	// nobody can write into err channel
+	// no more new errors
 	close(n.qerr)
 
 	fmt.Println("[NOTIFIER] is complete")
@@ -144,15 +158,24 @@ func worker(ctx context.Context, i int, q <-chan Message, qerr chan<- Message, u
 		case <-ctx.Done():
 			// The worker stops sending new messages
 			fmt.Println("[WORKER", i, "] received [STOP] signal")
+			// Return the last message to the error channel
+			// Drop the last message when error channel is full
+			select {
+			case qerr <- m:
+				fmt.Println("[WORKER", i, "] added last message to err channel")
+			default:
+				fmt.Println("[WORKER", i, "] can not add last message to err channel")
+			}
 			return
+
 		default:
 			// Sending a notification
 			err = sendNotificationWithClient(client, url, m.Body)
 			if err != nil {
-				// Set theerror and move the message into err channel
+				// Set the error and move the message into error channel
 				m.Err = err
-				// Is Blocked when the buffer is full
-				// TODO: we can drop failed messages when there are too many
+				// Is Blocked when the error channel is full
+				// TODO: we can drop the failed message on block
 				qerr <- m
 				continue
 			}
