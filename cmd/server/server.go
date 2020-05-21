@@ -26,10 +26,17 @@ func main() {
 
 		log.Println(totalRequests, string(body))
 
-		/*w.Header().Set("Content-Type", "text/plain")
+		w.Header().Set("Content-Type", "text/plain")
 		w.WriteHeader(http.StatusOK)
-		w.Write(body)*/
+		_, err = w.Write(body)
+		if err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			return
+		}
 	})
 
-	http.ListenAndServe(":8080", nil)
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
+		log.Fatal("can not start server")
+	}
 }
