@@ -1,4 +1,15 @@
 // Utility to send messages using notifier library
+//
+// Notifier will be initialized with url taken from a flag, url is required
+// on Start Notifier will create N workers to handle the incoming messages
+//
+// Parser reads from Scanner (stdin) and sends to a sending channel each line as a notifier.Message
+//
+// Sender reads from the sending channel, collects messages into a local buffered channel in order to send them at once to Notifier on time interval
+// Sending interval has default value 5 seconds, but can be specified in a flag
+// Sender allows Notifier to complete the sending on SIGINT/SIGTERM
+//
+// HandleErrors receives failed or cancelled messages from Notifier
 package main
 
 import (
@@ -66,8 +77,8 @@ func main() {
 	// Start Parser
 	go Parser(ctx, in, messagesCh)
 
-	// Run error handling
-	go HandleErrors(n.ErrChan())
+	// Start error handling
+	go HandleErrors(ctx, n.ErrChan())
 
 	// Start Notifier
 	n.Start()
@@ -77,7 +88,7 @@ func main() {
 	fmt.Println("[MAIN] is complete")
 }
 
-// Parser reads from Scanner and sends to out channel each line as Message
+// Parser reads from Scanner and sends to out channel each line as a notifier.Message
 func Parser(ctx context.Context, in *bufio.Scanner, out chan<- notifier.Message) {
 	// Completed parsing, no more new messages
 	defer close(out)
@@ -149,7 +160,7 @@ func Sender(ctx context.Context, n *notifier.Notifier, in <-chan notifier.Messag
 
 // queueToSlice reads from a buffered channel all items into a slice, then returns the slice
 func queueToSlice(q <-chan notifier.Message) []notifier.Message {
-	// Init a slice of messages for sending to Notifier on timer
+	// Init a slice of messages
 	messages := make([]notifier.Message, 0, 100*3+1)
 	for {
 		select {
