@@ -17,7 +17,6 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"math/rand"
 	"notify/notifier"
 	"os"
 	"os/signal"
@@ -25,11 +24,20 @@ import (
 	"time"
 )
 
+// Default sending interval
+const intervalDefault = 5
+
+// Parser's channel size, limits fast Parser
+const parserqSize = 400
+
+// Sender's channel size, limits messages which will be send to Notifier at once
+const senderqSize = 200
+
 // Workaround to parse short and long flags
 // TODO: parse interval when not a number
-var intervalFlag = flag.Int("interval", 5, "Notification interval, sec") // long interval flag
+var intervalFlag = flag.Int("interval", intervalDefault, "Notification interval, sec") // long interval flag
 func init() {
-	flag.IntVar(intervalFlag, "i", 5, "Notification interval, sec") // short interval flag
+	flag.IntVar(intervalFlag, "i", intervalDefault, "Notification interval, sec") // short interval flag
 }
 
 func main() {
@@ -43,13 +51,6 @@ func main() {
 	flag.StringVar(&url, "url", "", "Target server url for sending notifications")
 	flag.Parse()
 	interval = *intervalFlag
-
-	// TODO: make part of Parser
-	// Buffer size to limit fast Parser
-	messagesCap := 100 * 4
-	// Messages buffer to collect from Parser
-	// Parser is blocked when the channel is full
-	messagesCh := make(chan notifier.Message, messagesCap)
 
 	// Init Scanner for Parser
 	var in = bufio.NewScanner(os.Stdin)
@@ -74,8 +75,11 @@ func main() {
 		cancelFn()
 	}()
 
+	// Read channel to collect messages from Parser
+	// Parser is blocked when the channel is full
+	parserq := make(chan notifier.Message, parserqSize)
 	// Start Parser
-	go Parser(ctx, in, messagesCh)
+	go Parser(ctx, in, parserq)
 
 	// Start error handling
 	go HandleErrors(n.ErrChan())
@@ -83,7 +87,7 @@ func main() {
 	// Start Notifier
 	n.Start()
 	// Start Sender
-	Sender(ctx, n, messagesCh, interval)
+	Sender(ctx, n, parserq, interval)
 
 	fmt.Println("[MAIN] is complete")
 }
@@ -112,10 +116,6 @@ func Parser(ctx context.Context, in *bufio.Scanner, out chan<- notifier.Message)
 			}
 			i++
 		}
-
-		// temp slow down the Parser up to 5ms per line read
-		r := rand.Intn(5)
-		time.Sleep(time.Duration(r) * time.Millisecond)
 	}
 	fmt.Println("[PARSER] sent", i, "messages")
 }
@@ -130,7 +130,7 @@ func Sender(ctx context.Context, n *notifier.Notifier, in <-chan notifier.Messag
 	defer n.Stop()
 
 	// Init sender queue to avoid sending all at once (buffered)
-	senderq := make(chan notifier.Message, 100*3)
+	senderq := make(chan notifier.Message, senderqSize)
 	defer close(senderq)
 
 	// Read messages from Parser into the intermediate chanel
@@ -161,7 +161,7 @@ func Sender(ctx context.Context, n *notifier.Notifier, in <-chan notifier.Messag
 // queueToSlice reads from a buffered channel all items into a slice, then returns the slice
 func queueToSlice(q <-chan notifier.Message) []notifier.Message {
 	// Init a slice of messages
-	messages := make([]notifier.Message, 0, 100*3+1)
+	messages := make([]notifier.Message, 0, senderqSize)
 	for {
 		select {
 		case msg := <-q:
