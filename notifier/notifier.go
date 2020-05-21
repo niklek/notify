@@ -35,14 +35,16 @@ type Notifier struct {
 	ctx    context.Context
 	stopFn context.CancelFunc
 	wg     *sync.WaitGroup
-	q      chan Message // buffered channel for sending messages, buffer size is cfg.NumWorkers * 2
+	q      chan Message // buffered channel for sending messages
 	qerr   chan Message // buffered channel for failed messages
 }
 
 // Config contains all the settings for Notifier
 type Config struct {
-	Url        string // Url of a remote server
-	NumWorkers int    // Number of workers for sending
+	Url              string // Url of a remote server
+	NumWorkers       int    // Number of workers for sending
+	SendingQueueSize int    // Sending queue size
+	ErrorQueueSize   int    // Error queue size
 }
 
 // Initialize Notifier with a config
@@ -55,6 +57,12 @@ func NewNotifier(cfg Config) *Notifier {
 	if cfg.NumWorkers == 0 {
 		cfg.NumWorkers = MAX_WORKERS
 	}
+	if cfg.SendingQueueSize == 0 {
+		cfg.SendingQueueSize = cfg.NumWorkers * 3
+	}
+	if cfg.ErrorQueueSize == 0 {
+		cfg.ErrorQueueSize = cfg.NumWorkers * 3
+	}
 
 	// Cancellation context to stop workers
 	ctx, stopFn := context.WithCancel(context.Background())
@@ -64,8 +72,8 @@ func NewNotifier(cfg Config) *Notifier {
 		ctx:    ctx,
 		stopFn: stopFn,
 		wg:     &sync.WaitGroup{},
-		q:      make(chan Message, cfg.NumWorkers*2),
-		qerr:   make(chan Message, cfg.NumWorkers*2),
+		q:      make(chan Message, cfg.SendingQueueSize),
+		qerr:   make(chan Message, cfg.ErrorQueueSize),
 	}
 }
 
@@ -108,7 +116,7 @@ func (n *Notifier) Send(messages []Message) {
 		n.q <- m
 	}
 
-	fmt.Println("[NOTIFIER] all messages are distributed")
+	fmt.Println("[NOTIFIER] all messages sent to workers")
 }
 
 // ErrChan returns a buffered channel on which the caller can receive failed messages
@@ -148,7 +156,6 @@ func worker(ctx context.Context, i int, q <-chan Message, qerr chan<- Message, u
 				qerr <- m
 				continue
 			}
-			fmt.Println("id:", i, "[SENT] m:", m)
 		}
 	}
 	fmt.Println("[WORKER", i, "] completed")
