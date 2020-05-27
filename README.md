@@ -50,17 +50,17 @@ go build
 ```
 
 
-## Start an example server
-Example server helps to check
+## Start a server
+An example server that helps to demonstrate receiving messages from `notify`.
 
 ```
-cd cmd/server/
+cd internal/server/
 go run server.go 
 ```
 
 
 ## Run an example
-Basic debug messages will be printed.
+Basic debug messages will be printed in stdout.
 ```
 ./notify --url=http://localhost:8080/notify -i 1 < messages.txt 
 ```
