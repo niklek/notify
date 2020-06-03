@@ -36,12 +36,15 @@ func TestSend(t *testing.T) {
 	defer ts.Close()
 
 	// Init Notifier with the following settings
-	n := NewNotifier(Config{
+	n, err := NewNotifier(Config{
 		Url:              ts.URL, // test server url
 		NumWorkers:       2,
 		SendingQueueSize: 2,
 		ErrorQueueSize:   2,
 	})
+	if err != nil {
+		t.Errorf("%s", err)
+	}
 	// Start workers
 	n.Start()
 	// Send message slice
@@ -81,12 +84,15 @@ func TestSendFails(t *testing.T) {
 	defer ts.Close()
 
 	// Init Notifier with the following settings
-	n := NewNotifier(Config{
+	n, err := NewNotifier(Config{
 		Url:              ts.URL, // test server url
 		NumWorkers:       2,
 		SendingQueueSize: 2,
 		ErrorQueueSize:   2,
 	})
+	if err != nil {
+		t.Errorf("%s", err)
+	}
 	// Start workers
 	n.Start()
 	// Send message slice

@@ -13,7 +13,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"log"
 	"net"
 	"net/http"
 	"strconv"
@@ -55,10 +54,9 @@ type Config struct {
 }
 
 // Initialize Notifier with a config
-func NewNotifier(cfg Config) *Notifier {
+func NewNotifier(cfg Config) (*Notifier, error) {
 	if cfg.Url == "" {
-		log.Fatal("[NOTIFIER] Url is required")
-		return nil
+		return nil, fmt.Errorf("url is required")
 	}
 	// set defaults
 	if cfg.NumWorkers == 0 {
@@ -81,7 +79,7 @@ func NewNotifier(cfg Config) *Notifier {
 		wg:     &sync.WaitGroup{},
 		q:      make(chan Message, cfg.SendingQueueSize),
 		qerr:   make(chan Message, cfg.ErrorQueueSize),
-	}
+	}, nil
 }
 
 // Init internal queue and Start workers
