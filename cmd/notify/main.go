@@ -17,6 +17,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	log "github.com/sirupsen/logrus"
 	"notify/notifier"
 	"os"
 	"os/signal"
@@ -38,6 +39,10 @@ const senderqSize = 200
 var intervalFlag = flag.Int("interval", intervalDefault, "Notification interval, sec") // long interval flag
 func init() {
 	flag.IntVar(intervalFlag, "i", intervalDefault, "Notification interval, sec") // short interval flag
+
+	log.SetFormatter(&log.JSONFormatter{})
+	log.SetOutput(os.Stdout)
+	log.SetLevel(log.InfoLevel) // TODO
 }
 
 // TODO: read DEBUG from .env to turn off debug/log messages
@@ -64,7 +69,10 @@ func main() {
 		Url: url,
 		//NumWorkers: 100, // Custom number of sending workers
 	}
-	n := notifier.NewNotifier(cfg)
+	n, err := notifier.NewNotifier(cfg)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
 
 	// Register signal handler, only SIGINT
 	sigc := make(chan os.Signal)
@@ -72,7 +80,7 @@ func main() {
 	// Wait for sygnal, stop the process (parsing, reading)
 	go func() {
 		<-sigc
-		fmt.Println("[SIG*] signal from OS")
+		log.Info("[SIG*] signal from OS")
 		cancelFn()
 	}()
 
@@ -90,7 +98,7 @@ func main() {
 	// Start Sender
 	Sender(ctx, n, parserq, interval)
 
-	fmt.Println("[NOTIFY] is complete")
+	log.Info("process complete")
 }
 
 // Parser reads from Scanner and sends to out channel each line as a notifier.Message
