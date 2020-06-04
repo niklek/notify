@@ -16,7 +16,6 @@ import (
 	"bufio"
 	"context"
 	"flag"
-	"fmt"
 	log "github.com/sirupsen/logrus"
 	"notify/notifier"
 	"os"
@@ -80,7 +79,7 @@ func main() {
 	// Wait for sygnal, stop the process (parsing, reading)
 	go func() {
 		<-sigc
-		log.Info("[SIG*] signal from OS")
+		log.Info("interrupting the process...")
 		cancelFn()
 	}()
 
@@ -115,7 +114,7 @@ func Parser(ctx context.Context, in *bufio.Scanner, out chan<- notifier.Message)
 		select {
 		case <-ctx.Done():
 			// On cancel stop reading and sending new messages
-			fmt.Println("[PARSER] received [STOP] signal")
+			log.Info("read interrupted")
 			return
 		default:
 			// Create and send a message to a channel
@@ -126,7 +125,7 @@ func Parser(ctx context.Context, in *bufio.Scanner, out chan<- notifier.Message)
 			i++
 		}
 	}
-	fmt.Println("[PARSER] sent", i, "messages")
+	log.Infof("read and sent %d messages", i)
 }
 
 // Sender reads from in channel, collects messages into a local buffered channel
@@ -156,7 +155,7 @@ func Sender(ctx context.Context, n *notifier.Notifier, in <-chan notifier.Messag
 		case <-ctx.Done():
 			// Handling intermediate queue
 			messages := queueToSlice(senderq)
-			fmt.Println("[SENDER] received [STOP] signal.", len(messages), "messages will not be send")
+			log.Infof("send interrupted, %d messages will not be send", len(messages))
 			return
 		}
 	} // for range in
@@ -187,7 +186,7 @@ func HandleErrors(in <-chan notifier.Message) {
 	i := 0
 	for m := range in {
 		i++
-		fmt.Printf("[HandleErrors] failed message:%s error:%s\n", m.Body, m.Err)
+		log.Debugf("message:%s failed with error:%s\n", m.Body, m.Err)
 	}
-	fmt.Println("[HandleErrors] failed messages:", i)
+	log.Warnf("%d messages failed to send", i)
 }
