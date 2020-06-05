@@ -24,23 +24,19 @@ go test -v
 
 # Notify (the Executable)
 
-`Notify` is an utility to send text messages using `Notifier` package.
+`Notify` is an utility to send text messages using `Notifier` package to a server.
 
-`Notifier` will be initialized with `url` taken from a flag, *url* is required.
+`Notifier` will be initialized with a `url` taken from flags, `url` is required.
+`Notifier.Start()` creates N workers and is waiting for incoming messages from a `Sender` process.
 
-On Start, `Notifier` will create N workers to handle the incoming messages.
+`Parser` reads *stdin*, wraps lines into a *message* and sends them to `Sender` via channel.
+`Sender` takes messages from the channel, collects them into a local buffered channel and sends them at once on a time interval.
+The interval has a default value 5 seconds, but can be specified in a flag.
 
-`Notify` has the following parts:
+`Notify` listens for *SIGINT*, *SIGTERM*
+On signal, `Sender` stops sending new messages, but will wait for workers to complete.
 
-- `Parser` reads from `Scanner` (stdin) and sends to a sending channel each line as a `notifier.Message`
-
-- `Sender` reads from the sending channel, collects messages into a local buffered channel in order to send them at once to `Notifier` on time interval.
-   Sending interval has default value 5 seconds, but can be specified in a flag.
-   `Sender` allows `Notifier` to complete the sending on `SIGINT` or `SIGTERM`
-
-- `HandleErrors` receives failed or cancelled messages from `Notifier`. 
-   At the moment `HandleErrors` simple prints failed messages.
-
+`HandleErrors` receives failed or cancelled messages from `Notifier` package to print basic info.
 
 ## Installation
 
