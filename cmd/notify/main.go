@@ -49,12 +49,18 @@ func init() {
 	flag.IntVar(&interval, "i", intervalDefault, intervalUsage+" (shorthand)") // short interval flag
 	flag.StringVar(&url, "url", "", urlUsage)
 
+	// Take log level from env variable or default
+	s, _ := os.LookupEnv("LOG_LEVEL")
+	logLevel, err := log.ParseLevel(s)
+	if err != nil {
+		logLevel = log.DebugLevel
+	}
+	// Logger settings
 	log.SetFormatter(&log.JSONFormatter{})
 	log.SetOutput(os.Stdout)
-	log.SetLevel(log.InfoLevel) // TODO
+	log.SetLevel(logLevel)
 }
 
-// TODO: read DEBUG from .env to set log level
 func main() {
 	flag.Parse()
 
