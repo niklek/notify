@@ -24,38 +24,41 @@ import (
 	"time"
 )
 
-// Default sending interval
-const intervalDefault = 5
-
 // Parser's channel size, limits fast Parser
 const parserqSize = 400
 
 // Sender's channel size, limits messages which will be send to Notifier at once
 const senderqSize = 200
 
-// Workaround to parse short and long flags
-// TODO: parse interval when not a number
-var intervalFlag = flag.Int("interval", intervalDefault, "Notification interval, sec") // long interval flag
+var (
+	url      string
+	interval int // Two flags sharing the variable, so we can have a shorthand.
+)
+
 func init() {
-	flag.IntVar(intervalFlag, "i", intervalDefault, "Notification interval, sec") // short interval flag
+	const (
+		intervalDefault = 5 // Default sending interval
+		intervalUsage   = "Notification interval, sec"
+		urlUsage        = "Target server url for sending notifications"
+	)
+
+	flag.IntVar(&interval, "interval", intervalDefault, intervalUsage)
+	flag.IntVar(&interval, "i", intervalDefault, intervalUsage+" (shorthand)") // short interval flag
+	flag.StringVar(&url, "url", "", urlUsage)
 
 	log.SetFormatter(&log.JSONFormatter{})
 	log.SetOutput(os.Stdout)
 	log.SetLevel(log.InfoLevel) // TODO
 }
 
-// TODO: read DEBUG from .env to turn off debug/log messages
+// TODO: read DEBUG from .env to set log level
 func main() {
-	var (
-		url      string
-		interval int
-	)
-
-	// Parse flags
-	// TODO: print usage, support --help
-	flag.StringVar(&url, "url", "", "Target server url for sending notifications")
 	flag.Parse()
-	interval = *intervalFlag
+
+	log.WithFields(log.Fields{
+		"interval": interval,
+		"url":      url,
+	}).Info("process started")
 
 	// Init Scanner for Parser
 	var in = bufio.NewScanner(os.Stdin)
@@ -65,7 +68,7 @@ func main() {
 
 	// Initialize Notifier with a confif
 	cfg := notifier.Config{
-		Url: url,
+		Url: url, // TODO: url validation
 		//NumWorkers: 100, // Custom number of sending workers
 	}
 	n, err := notifier.NewNotifier(cfg)
