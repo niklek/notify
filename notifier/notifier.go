@@ -13,8 +13,10 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	log "github.com/sirupsen/logrus"
 	"net"
 	"net/http"
+	"os"
 	"strconv"
 	"sync"
 	"time"
@@ -51,6 +53,19 @@ type Config struct {
 	NumWorkers       int    // Number of workers for sending
 	SendingQueueSize int    // Sending queue size
 	ErrorQueueSize   int    // Error queue size
+}
+
+func init() {
+	// Take log level from env variable or default
+	s, _ := os.LookupEnv("LOG_LEVEL")
+	logLevel, err := log.ParseLevel(s)
+	if err != nil {
+		logLevel = log.DebugLevel
+	}
+	// Logger settings
+	log.SetFormatter(&log.JSONFormatter{})
+	log.SetOutput(os.Stdout)
+	log.SetLevel(logLevel)
 }
 
 // Initialize Notifier with a config
@@ -90,14 +105,14 @@ func (n *Notifier) Start() {
 		go worker(n.ctx, i, n.q, n.qerr, n.cfg.Url, n.wg)
 	}
 
-	fmt.Println("[NOTIFIER] started", n.cfg.NumWorkers, "workers")
+	log.Info("started", n.cfg.NumWorkers, "workers")
 }
 
 // Handle shutdown, wait for all workers to complete
 func (n *Notifier) Stop() {
 	// Drain error channel on cancel
 	defer func() {
-		fmt.Println("[NOTIFIER] drop", len(n.qerr), "messages from err channel")
+		log.Warning("drop", len(n.qerr), "messages from err channel")
 		for range n.qerr {
 		}
 	}()
@@ -115,12 +130,12 @@ func (n *Notifier) Stop() {
 	// no more new errors
 	close(n.qerr)
 
-	fmt.Println("[NOTIFIER] is complete")
+	log.Info("sending is complete")
 }
 
 // Sends all messages to url using N workers
 func (n *Notifier) Send(messages []Message) {
-	fmt.Println("[NOTIFIER] received", len(messages), "messages")
+	log.Info("received", len(messages), "messages")
 
 	// Distribute new messages to workers
 	for _, m := range messages {
@@ -128,7 +143,7 @@ func (n *Notifier) Send(messages []Message) {
 		n.q <- m
 	}
 
-	//fmt.Println("[NOTIFIER] all messages are sent to workers")
+	log.Debug("all messages are sent to workers")
 }
 
 // ErrChan returns a buffered channel on which the caller can receive failed messages
@@ -154,9 +169,9 @@ func worker(ctx context.Context, i int, q <-chan Message, qerr chan<- Message, u
 			// Drop the last message when error channel is full
 			select {
 			case qerr <- m:
-				//fmt.Println("[WORKER", i, "] added last message to err channel")
+				log.Debug("worker:", i, "added last message to err channel")
 			default:
-				//fmt.Println("[WORKER", i, "] can not add last message to err channel")
+				log.Error("worker:", i, "can not add last message to err channel, it is full")
 			}
 			return
 
@@ -173,7 +188,7 @@ func worker(ctx context.Context, i int, q <-chan Message, qerr chan<- Message, u
 			}
 		}
 	}
-	fmt.Println("[WORKER", i, "] completed")
+	log.Info("worker:", i, "completed")
 }
 
 // Sends a notification via POST to url using HTTP client
