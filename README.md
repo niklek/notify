@@ -1,19 +1,19 @@
-# Notifier (the Library)
+# notifier
 
-Notifier is a package for sending text messages to a target url via HTTP `POST` requests.
-Notifier has the following public methods:
+`notifier` is a package for sending text messages to a target url via HTTP `POST` requests.
 
-- `Start` creates N workers, by default 20.
+Exported methods:
+- `NewNotifier` init method, creates `Notifier` with a config.
+- `Start` starts N workers, by default 20. Each worker creates a custom HTTP client with specified timeouts, used for sending messages.
+- `Send` receives messages as `[]Message`, adds them to the sending channel which will be read by workers.
+- `Stop` waits for the workers to complete the recent sending. Has to be called at the end.
+- `ErrChan` returns an error channel to handle failed messages.
 
-- `Send` receives a slice of `Message`, adds each item to the sending queue which is read by workers.
+## Logging
 
-- `Stop` waits for the workers to complete the sending process. Has to be called at the end.
-
-`Notifier` has an error queue which should be read from outside using `ErrChan` method.
-Remaining failed messages in the error queue will be removed before exit when `Stop` is called.
-
-Each worker creates a custom HTTP client with specified timeouts, used for sending messages.
-Failed messages will be added to the error queue.
+The package uses `github.com/sirupsen/logrus` logger, logs as JSON to *stdout*.
+Log level can be set via `LOG_LEVEL` env variable, default is debug level.
+Logging has to be handled externally, see [12factor.net/logs](https://12factor.net/logs).
 
 ## Run tests
 
@@ -22,21 +22,23 @@ cd notifier/
 go test -v
 ```
 
-# Notify (the Executable)
+# notify cli tool
 
-`Notify` is an utility to send text messages using `Notifier` package to a server.
+`notify` is an utility to send text messages to a target server using `notifier` package.
+Accepts the following arguments:
+- *url*, must be set via `--url` parameter, required
+- *interval*, can be set via `--interval` or `-i`, has a default value 5 seconds
 
-`Notifier` will be initialized with a `url` taken from flags, `url` is required.
-`Notifier.Start()` creates N workers and is waiting for incoming messages from a `Sender` process.
+## What it does internally
 
-`Parser` reads *stdin*, wraps lines into a *message* and sends them to `Sender` via channel.
-`Sender` takes messages from the channel, collects them into a local buffered channel and sends them at once on a time interval.
-The interval has a default value 5 seconds, but can be specified in a flag.
+`Parser` reads *stdin*, wraps lines into a *message* and sends them to `Sender` via a channel.
+`Sender` takes messages from the channel, collects them into a local buffer and sends them at once on a time interval.
+`HandleErrors` receives failed messages from `notifier` package for further handling.
 
-`Notify` listens for *SIGINT*, *SIGTERM*
-On signal, `Sender` stops sending new messages, but will wait for workers to complete.
+## Graseful shutdown
 
-`HandleErrors` receives failed or cancelled messages from `Notifier` package to print basic info.
+`notify` listens for *SIGINT*, *SIGTERM*
+On signal, `Sender` will stop sending new messages and wait for `notifier` to complete.
 
 ## Installation
 
@@ -45,8 +47,8 @@ cd cmd/notify/
 go build 
 ```
 
-
 ## Start a server
+
 An example server that helps to demonstrate receiving messages from `notify`.
 
 ```
@@ -54,9 +56,9 @@ cd internal/server/
 go run server.go 
 ```
 
-
 ## Run an example
-Basic debug messages will be printed in stdout.
+
+Basic debug messages will be printed in *stdout*.
 ```
 ./notify --url=http://localhost:8080/notify -i 1 < messages.txt 
 ```
