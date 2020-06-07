@@ -37,10 +37,10 @@ func TestSend(t *testing.T) {
 
 	// Init Notifier with the following settings
 	n, err := NewNotifier(Config{
-		Url:              ts.URL, // test server url
-		NumWorkers:       2,
-		SendingQueueSize: 2,
-		ErrorQueueSize:   2,
+		Url:            ts.URL, // test server url
+		NumWorkers:     2,
+		MsgChanSize:    2,
+		MsgErrChanSize: 2,
 	})
 	if err != nil {
 		t.Errorf("%s", err)
@@ -57,11 +57,11 @@ func TestSend(t *testing.T) {
 		},
 	})
 
-	qerr := n.ErrChan()
+	msgErrChan := n.ErrChan()
 loop:
 	for {
 		select {
-		case m := <-qerr:
+		case m := <-msgErrChan:
 			t.Errorf("Unexpected message in the error channel: %s %s", m.Body, m.Err)
 		case <-time.After(time.Second):
 			break loop
@@ -85,10 +85,10 @@ func TestSendFails(t *testing.T) {
 
 	// Init Notifier with the following settings
 	n, err := NewNotifier(Config{
-		Url:              ts.URL, // test server url
-		NumWorkers:       2,
-		SendingQueueSize: 2,
-		ErrorQueueSize:   2,
+		Url:            ts.URL, // test server url
+		NumWorkers:     2,
+		MsgChanSize:    2,
+		MsgErrChanSize: 2,
 	})
 	if err != nil {
 		t.Errorf("%s", err)
@@ -105,12 +105,12 @@ func TestSendFails(t *testing.T) {
 		},
 	})
 
-	qerr := n.ErrChan()
+	msgErrChan := n.ErrChan()
 	i := 0
 loop:
 	for {
 		select {
-		case m := <-qerr:
+		case m := <-msgErrChan:
 			i++
 			if m.Err == nil {
 				t.Errorf("Expected message with an error, received %s", m.Err)
