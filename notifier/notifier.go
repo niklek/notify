@@ -39,12 +39,13 @@ type Message struct {
 
 // Notifier manages sending incoming messages to a target url
 type Notifier struct {
-	cfg    Config
-	ctx    context.Context
-	stopFn context.CancelFunc
-	wg     *sync.WaitGroup
-	q      chan Message // buffered channel for sending messages
-	qerr   chan Message // buffered channel for failed messages
+	url        string
+	numWorkers int
+	ctx        context.Context
+	stopFn     context.CancelFunc
+	wg         *sync.WaitGroup
+	q          chan Message // buffered channel for sending messages
+	qerr       chan Message // buffered channel for failed messages
 }
 
 // Config contains all the settings for Notifier
@@ -88,24 +89,25 @@ func NewNotifier(cfg Config) (*Notifier, error) {
 	ctx, stopFn := context.WithCancel(context.Background())
 
 	return &Notifier{
-		cfg:    cfg,
-		ctx:    ctx,
-		stopFn: stopFn,
-		wg:     &sync.WaitGroup{},
-		q:      make(chan Message, cfg.SendingQueueSize),
-		qerr:   make(chan Message, cfg.ErrorQueueSize),
+		url:        cfg.Url,
+		numWorkers: cfg.NumWorkers,
+		ctx:        ctx,
+		stopFn:     stopFn,
+		wg:         &sync.WaitGroup{},
+		q:          make(chan Message, cfg.SendingQueueSize),
+		qerr:       make(chan Message, cfg.ErrorQueueSize),
 	}, nil
 }
 
 // Init internal queue and Start workers
 func (n *Notifier) Start() {
 	// Start cfg.NumWorkers workers
-	for i := 0; i < n.cfg.NumWorkers; i++ {
+	for i := 0; i < n.numWorkers; i++ {
 		n.wg.Add(1)
-		go worker(n.ctx, i, n.q, n.qerr, n.cfg.Url, n.wg)
+		go worker(n.ctx, i, n.q, n.qerr, n.url, n.wg)
 	}
 
-	log.Info("started", n.cfg.NumWorkers, "workers")
+	log.Info("started", n.numWorkers, "workers")
 }
 
 // Handle shutdown, wait for all workers to complete
