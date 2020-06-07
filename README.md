@@ -1,13 +1,13 @@
 # notifier
 
-`notifier` is a package for sending text messages to a target url via HTTP `POST` requests.
+`notifier` is a package for sending text messages to a server via HTTP `POST` method.
 
 Exported methods:
-- `NewNotifier` init method, creates `Notifier` with a config.
+- `NewNotifier` constructor for `Notifier`, receives a config.
 - `Start` starts N workers, by default 20. Each worker creates a custom HTTP client with specified timeouts, used for sending messages.
-- `Send` receives messages as `[]Message`, adds them to the sending channel which will be read by workers.
-- `Stop` waits for the workers to complete the recent sending. Has to be called at the end.
-- `ErrChan` returns an error channel to handle failed messages.
+- `Send` receives messages as `[]Message`, adds them to a sending channel read by workers.
+- `Stop` closes the sending channel and waits for the workers to complete the recent sending.
+- `ErrChan` returns an error channel to read and handle failed messages.
 
 ## Logging
 
@@ -24,10 +24,20 @@ go test -v
 
 # notify cli tool
 
-`notify` is an utility to send text messages to a target server using `notifier` package.
-Accepts the following arguments:
-- *url*, must be set via `--url` parameter, required
-- *interval*, can be set via `--interval` or `-i`, has a default value 5 seconds
+`notify` is an utility to send text messages to a server using `notifier` package.
+
+## Usage
+
+```
+./notify --help
+Usage of ./notify:
+  -i int
+        Notification interval, sec (shorthand) (default 5)
+  -interval int
+        Notification interval, sec (default 5)
+  -url string
+        Target server url for sending notifications
+```
 
 ## What it does internally
 
